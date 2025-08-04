@@ -94,30 +94,23 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-users"></i>    Serviços
+                                    <i class="fa-solid fa-kitchen-set"></i>    Serviços
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="<?php echo BASEURL; ?>customers/add.php"><i class="fa-solid fa-user-plus"></i> Jantares almoços privados</a></li>
-                                    <li><a class="dropdown-item" href="<?php echo BASEURL; ?>customers"><i class="fa-solid fa-users"></i> Marmitas e finger foods</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo BASEURL; ?>customers/add.php"><i class="fa-solid fa-utensils"></i>    Jantares almoços privados</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo BASEURL; ?>customers"><i class="fa-solid fa-burger"></i>      Marmitas e finger foods</a></li>
                                 </ul>
                             </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-people-group"></i>    Gerentes
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" aria-expanded="false">
+                                    <i class="fa-solid fa-star-half-stroke"></i>    Avaliações
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="<?php echo BASEURL; ?>gerente">
-                                            <i class="fa-solid fa-people-group"></i>    Gerenciar Gerentes
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="<?php echo BASEURL; ?>gerente/add.php">
-                                            <i class="fa-solid fa-person-circle-plus"></i>    Novo Gerente
-                                        </a>
-                                    </li>
-                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" aria-expanded="false">
+                                    <i class="fa-solid fa-person-dress"></i>    Karol Marques
+                                </a>
                             </li>
 
                             <?php if (isset($_SESSION['user'])): // Verifica se está logado ?>
