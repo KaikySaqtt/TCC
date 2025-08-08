@@ -81,4 +81,4 @@
             </ul>
         </div>
     </nav>
-    <main class="container">
+    <main class="">
