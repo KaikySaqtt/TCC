@@ -3,7 +3,7 @@
     src: url('/TCC/webfonts/agrandir-Regular.woff2') format('woff2');
 }
 body {
-    padding-top: 50px;
+    padding-bottom: 30px;
     padding-bottom: 20px;
     }        
 .btn-light {
@@ -66,6 +66,7 @@ body {
 .direita{
     width: 43vw;
     height: 100vh;
+    margin-top: px;
 }
 .int{
     display: flex;
@@ -76,14 +77,12 @@ body {
 .agrandir{
     font-family: 'agrandir';
 }
-.cardleft{
+.card{
     margin-bottom: 15px;
 }
-.cardmeio{
-    margin-top: 15px;
-}
-.cardrigth{
-     margin-top: 20px;
+.col-sm{
+    padding: 0px;
+    padding-left: 2px;
 }
 .services{
     background-color: #cbcbcb;
