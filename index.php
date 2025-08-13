@@ -16,7 +16,7 @@ $db = open_database();
 
     <?php clear_messages(); ?>
 <?php endif; ?>
-
+<div style="position: relative;"> 
 <div class="int">
     <div class="esquerda">
         <h1 class="agrandir"> <b> Um restaurante em sua residência </b></h1>
@@ -28,7 +28,7 @@ $db = open_database();
         <div class="container">
             <div class="row">
                 <div class="col-sm">
-                    <div class="card cardleft " style="width: 12vw; ">
+                    <div class="card cardleft cardtopo" style="width: 12vw; ">
                         <img class="card-img-top rounded" src="kmimagens/km1.png" alt="Imagem de capa do card">
                     </div>
                     <div class="card cardleft " style="width: 12vw;">
@@ -39,7 +39,7 @@ $db = open_database();
                     </div>
                 </div>
                 <div class="col-sm">
-                    <div class="card cardmeio" style="width: 12vw;">
+                    <div class="card cardmeio cardtopo" style="width: 12vw;">
                         <img class="card-img-top rounded" src="kmimagens/docepote4.png" alt="Imagem de capa do card">
                     </div>
                     <div class="card cardmeio" style="width: 12vw;">
@@ -50,7 +50,7 @@ $db = open_database();
                     </div>
                 </div>
                 <div class="col-sm">
-                    <div class="card cardrigth " style="width: 12vw;">
+                    <div class="card cardrigth cardtopo" style="width: 12vw;">
                         <img class="card-img-top rounded" src="kmimagens/marmita2.png" alt="Imagem de capa do card">
                     </div>
                     <div class="card cardrigth " style="width: 12vw;">
@@ -67,5 +67,6 @@ $db = open_database();
 </div>
 <div class="services">
 
+</div>
 </div>
     <?php include(FOOTER_TEMPLATE); ?>

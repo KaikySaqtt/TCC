@@ -44,7 +44,6 @@ body {
 .collapse{
     margin-left: 1%;
 }
-
 .kmhome{
     margin-left: 10px;
     }
@@ -71,23 +70,36 @@ body {
 .int{
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 105vh;
     flex-flow: row wrap;
 }
 .agrandir{
     font-family: 'agrandir';
 }
 .card{
-    margin-bottom: 15px;
+    position: relative;
+    z-index: 0; /* fica abaixo da services */
 }
 .col-sm{
     padding: 0px;
     padding-left: 2px;
 }
+.cardleft{
+    margin-top: 4vh;
+}
+.cardmeio{
+    margin-top: 5vh;
+}
+.cardrigth{
+    margin-top: 6vh;
+}
 .services{
     background-color: #cbcbcb;
     width: 100vw;
     height: 100vh;
+    position: relative; /* ou absolute, dependendo do fluxo */
+    z-index: 1; /*acima do conteúdo anterior */
+    margin-top: -25px; /* valor ajustado para começar a cobrir antes */
 }
 @media (max-width: 767px) {
     .kmpanela{
@@ -98,6 +110,11 @@ body {
     .kmpanela{
         padding-left: 5vw;
     }
+    }
+@media (max-width: 896px) {
+    .services{
+   
+}
     }
 @media (max-width: 410px) {
     .kmdv{
