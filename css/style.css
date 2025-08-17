@@ -54,7 +54,7 @@ body {
 .esquerda{
     width: 57vw;
     height: 100vh;
-    padding-top: 40vh;
+    padding-top: 30vh;
 }
 .esquerda h1{
     text-align: center;
@@ -62,10 +62,19 @@ body {
 .esquerda h4{
     text-align: center;
 }
+.esquerda button{
+    background-color: #233f69;
+    color: #ffffff;
+    border-radius: 25px;
+    Text-align: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-left: 23vw;
+    cursor: pointer;
+}
 .direita{
     width: 43vw;
     height: 100vh;
-    margin-top: px;
 }
 .int{
     display: flex;
@@ -79,10 +88,6 @@ body {
 .card{
     position: relative;
     z-index: 0; /* fica abaixo da services */
-}
-.col-sm{
-    padding: 0px;
-    padding-left: 2px;
 }
 .cardleft{
     margin-top: 4vh;
@@ -100,6 +105,24 @@ body {
     position: relative; /* ou absolute, dependendo do fluxo */
     z-index: 1; /*acima do conteúdo anterior */
     margin-top: -25px; /* valor ajustado para começar a cobrir antes */
+    padding: 0px;
+}
+.services section{
+    background-color: #ffffff;    
+    width: 90vw;
+    height: 85vh;
+}
+.tituloeventos{
+    width: 40vw;
+    height: 100%;
+    padding-top: 30vh;
+}
+.tituloeventos h4{
+    text-align: center;
+}
+.eventos{
+    width: 45vw;
+    height: 100%;
 }
 @media (max-width: 767px) {
     .kmpanela{
@@ -112,9 +135,7 @@ body {
     }
     }
 @media (max-width: 896px) {
-    .services{
-   
-}
+
     }
 @media (max-width: 410px) {
     .kmdv{
