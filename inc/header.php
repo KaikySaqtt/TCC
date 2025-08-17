@@ -34,7 +34,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" aria-expanded="false">
-                        <i class="fa-solid fa-star-half-stroke"></i> Avaliações
+                        <i class="fa-solid fa-star-half-stroke"></i> Agendamento
                     </a>
                 </li>
                 <li class="nav-item">
@@ -73,7 +73,7 @@
                     </li>
                 <?php else : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASEURL; ?>inc/login.php">
+                        <a class="nav-link" href="<?php echo BASEURL; ?>inc/login.php" style="margin-right: 10px">
                             <i class="fa-solid fa-users"></i> Login
                         </a>
                     </li>

@@ -62,16 +62,7 @@ body {
 .esquerda h4{
     text-align: center;
 }
-.esquerda button{
-    background-color: #233f69;
-    color: #ffffff;
-    border-radius: 25px;
-    Text-align: center;
-    text-decoration: none;
-    padding: 10px 20px;
-    margin-left: 23vw;
-    cursor: pointer;
-}
+
 .direita{
     width: 43vw;
     height: 100vh;
@@ -88,6 +79,8 @@ body {
 .card{
     position: relative;
     z-index: 0; /* fica abaixo da services */
+    background-color: #233f6900;
+    border: 0px;
 }
 .cardleft{
     margin-top: 4vh;
@@ -111,9 +104,10 @@ body {
     background-color: #ffffff;    
     width: 90vw;
     height: 85vh;
+    display: flex;
 }
 .tituloeventos{
-    width: 40vw;
+    width: 40%;
     height: 100%;
     padding-top: 30vh;
 }
@@ -121,9 +115,52 @@ body {
     text-align: center;
 }
 .eventos{
-    width: 45vw;
+    width: 60%;
     height: 100%;
 }
+.eventos .card{
+    width: 19vw;
+    margin-left: 20px;
+}
+.btn-km{
+    background-color: #233f69;
+    color: #ffffff;
+    border-radius: 25px;
+    Text-align: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+
+}
+.btn-km:hover{
+    background-color: #4c73b3;
+    color: #fff;
+}
+.eventos h5{
+    font-size: 130%;
+}
+.sobre-km{
+    background-color: #ffffff;
+    width: 100vw;
+    height: 100vh;
+    padding: 0px;
+}
+.sobre-km section{
+    background-color: #cbcbcb;    
+    width: 90vw;
+    height: 85vh;
+    display: flex;
+}
+.kmesquerda{
+    height: 100vh;
+    width: 40vw;
+}
+.kmdireita{
+    height: 100vh;
+    width: 60vw;
+}
+
 @media (max-width: 767px) {
     .kmpanela{
         display: none;
@@ -135,6 +172,20 @@ body {
     }
     }
 @media (max-width: 896px) {
+    .int-cards{
+        margin-top: 3vh;
+    }
+    .cardleft{
+        margin-top: 7vh;    
+    }
+    .cardmeio{
+        margin-top: 8vh;
+    }
+    .cardrigth{
+        margin-top: 8vh;
+        }
+    }
+@media (max-width: 800px) {
 
     }
 @media (max-width: 410px) {
