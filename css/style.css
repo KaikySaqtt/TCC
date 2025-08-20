@@ -82,13 +82,13 @@ body {
     background-color: #233f6900;
     border: 0px;
 }
-.cardleft{
+.card-left{
     margin-top: 4vh;
 }
-.cardmeio{
+.card-meio{
     margin-top: 5vh;
 }
-.cardrigth{
+.card-rigth{
     margin-top: 6vh;
 }
 .services{
@@ -160,10 +160,37 @@ body {
     height: 100vh;
     width: 60vw;
 }
+.direita .card{
+    width: 12vw;
+}
 
 @media (max-width: 767px) {
     .kmpanela{
         display: none;
+    }
+    .esquerda{
+        width: 100vw;
+        height: auto;
+    }
+    .direita{
+        width: 100vw;
+        height: auto;
+    }
+    .services{
+        margin-top: 0px;
+    }
+    .col-left{
+        display: none;
+    }
+    .col-right{
+        display: none;
+    }
+    .col-meio{
+        display: flex;
+        justify-content: space-between;
+    }
+    .direita .card{
+        width: 16vw;
     }
     }
 @media (max-width: 850px) {
@@ -185,9 +212,6 @@ body {
         margin-top: 8vh;
         }
     }
-@media (max-width: 800px) {
-
-    }
 @media (max-width: 410px) {
     .kmdv{
         display: none;
@@ -200,4 +224,7 @@ body {
     .kmdiv{
         display: none;
         }
+    .card-responsivo{
+        display: none;
+    }
     }

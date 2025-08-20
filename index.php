@@ -30,36 +30,39 @@ $db = open_database();
         <div class="direita">
             <div class="container">
                 <div class="row flex-nowrap int-cards">
-                    <div class="col-sm">
-                        <div class="card cardleft cardtopo" style="width: 12vw; ">
+                    <div class="col-sm col-left">
+                        <div class="card card-left cardtopo">
                             <img class="card-img-top rounded" src="kmimagens/km1.png" alt="Imagem de capa do card">
                         </div>
-                        <div class="card cardleft " style="width: 12vw;">
+                        <div class="card card-left">
                             <img class="card-img-top rounded" src="kmimagens/docepote.png" alt="Imagem de capa do card">
                         </div>
-                        <div class="card cardleft " style="width: 12vw;">
+                        <div class="card card-left">
                             <img class="card-img-top rounded" src="kmimagens/marmitas42.png" alt="Imagem de capa do card">
                         </div>
                     </div>
-                    <div class="col-sm">
-                        <div class="card cardmeio cardtopo" style="width: 12vw;">
+                    <div class="col-sm col-meio">
+                        <div class="card card-meio cardtopo" >
                             <img class="card-img-top rounded" src="kmimagens/docepote4.png" alt="Imagem de capa do card">
                         </div>
-                        <div class="card cardmeio" style="width: 12vw;">
+                        <div class="card card-meio">
                             <img class="card-img-top rounded" src="kmimagens/km2.png" alt="Imagem de capa do card">
                         </div>
-                        <div class="card cardmeio" style="width: 12vw;">
+                        <div class="card card-meio">
+                            <img class="card-img-top rounded" src="kmimagens/marmitas4.png" alt="Imagem de capa do card">
+                        </div>
+                        <div class="card card-meio card-responsivo">
                             <img class="card-img-top rounded" src="kmimagens/marmitas4.png" alt="Imagem de capa do card">
                         </div>
                     </div>
-                    <div class="col-sm">
-                        <div class="card cardrigth cardtopo" style="width: 12vw;">
+                    <div class="col-sm col-right">
+                        <div class="card card-rigth cardtopo">
                             <img class="card-img-top rounded" src="kmimagens/comida1.png" alt="Imagem de capa do card">
                         </div>
-                        <div class="card cardrigth " style="width: 12vw;">
+                        <div class="card card-rigth">
                             <img class="card-img-top rounded" src="kmimagens/docepote2.png" alt="Imagem de capa do card">
                         </div>
-                        <div class="card cardrigth " style="width: 12vw;">
+                        <div class="card card-rigth">
                             <img class="card-img-top rounded" src="kmimagens/comida3.png" alt="Imagem de capa do card">
                         </div>
                     </div>
