@@ -76,12 +76,6 @@ body {
 .agrandir{
     font-family: 'agrandir';
 }
-.card{
-    position: relative;
-    z-index: 0; /* fica abaixo da services */
-    background-color: #233f6900;
-    border: 0px;
-}
 .card-left{
     margin-top: 4vh;
 }
@@ -131,7 +125,6 @@ body {
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 20px;
-
 }
 .btn-km:hover{
     background-color: #4c73b3;
@@ -162,6 +155,13 @@ body {
 }
 .direita .card{
     width: 12vw;
+    position: relative;
+    z-index: 0; /* fica abaixo da services */
+    background-color: #233f6900;
+}
+.card{
+    border: 0px;
+    background-color: #233f6900;
 }
 
 @media (max-width: 767px) {
@@ -170,15 +170,19 @@ body {
     }
     .esquerda{
         width: 100vw;
-        height: auto;
+        height: 70vh;
     }
     .direita{
         width: 100vw;
-        height: auto;
+        height: 100vh;
+    }
+    .int{
+        height: 170vh;
     }
     .services{
         margin-top: 0px;
     }
+    /*
     .col-left{
         display: none;
     }
@@ -189,8 +193,19 @@ body {
         display: flex;
         justify-content: space-between;
     }
+    */
+    .col-sm{
+        margin-right: 0px;
+    }
     .direita .card{
         width: 16vw;
+        z-index: 1;
+    }
+    .services{
+    position: absolute; /* ou absolute, dependendo do fluxo */
+    z-index: 1; /*acima do conteúdo anterior */
+    margin-top: -25px; /* valor ajustado para começar a cobrir antes */
+    padding: 0px;
     }
     }
 @media (max-width: 850px) {
@@ -210,7 +225,7 @@ body {
     }
     .cardrigth{
         margin-top: 8vh;
-        }
+    }
     }
 @media (max-width: 410px) {
     .kmdv{
@@ -224,7 +239,4 @@ body {
     .kmdiv{
         display: none;
         }
-    .card-responsivo{
-        display: none;
-    }
     }

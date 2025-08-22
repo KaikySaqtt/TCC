@@ -51,9 +51,6 @@ $db = open_database();
                         <div class="card card-meio">
                             <img class="card-img-top rounded" src="kmimagens/marmitas4.png" alt="Imagem de capa do card">
                         </div>
-                        <div class="card card-meio card-responsivo">
-                            <img class="card-img-top rounded" src="kmimagens/marmitas4.png" alt="Imagem de capa do card">
-                        </div>
                     </div>
                     <div class="col-sm col-right">
                         <div class="card card-rigth cardtopo">
