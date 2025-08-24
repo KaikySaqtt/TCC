@@ -1,242 +1,95 @@
 @font-face {
-    font-family: 'agrandir';
-    src: url('/TCC/webfonts/agrandir-Regular.woff2') format('woff2');
-}
-body {
-    padding-bottom: 30px;
-    padding-bottom: 20px;
-    }        
-.btn-light {
-    color: #ffffff;
-    background-color: #999999;
-    border-color: #999999;
-    }
-.btn-outline-dark {
-    color: #ffffff;
-    border-color: #666666;
-    }
-
-.btn-light:hover {
-    background-color: #888888;
-    color: #ffffff;
-    border-color: #888888;
-    }
-.navbar{
-    background-color: #677483;
-    margin: 0;
-    }
-.navbody a{
-    color: #eeececff;
-    }
-.dropdown-menu{
-    background-color: #677483;
-    color: #e7e7e7ff;
-    }
-.km{
-    width: auto;
-    height: 40px;
-    padding-left: 30px;
-    }
-.kmnome{
-    width: auto;
-    height: 40px;
-    }
-.collapse{
-    margin-left: 1%;
-}
-.kmhome{
-    margin-left: 10px;
-    }
-    
-.kmpanela{
-    padding-left: 18vw;
-    }
-.esquerda{
-    width: 57vw;
-    height: 100vh;
-    padding-top: 30vh;
-}
-.esquerda h1{
-    text-align: center;
-}
-.esquerda h4{
-    text-align: center;
+  font-family: 'agrandir';
+  src: url('/TCC/webfonts/agrandir-Regular.woff2') format('woff2');
 }
 
-.direita{
-    width: 43vw;
-    height: 100vh;
+/* Base */
+body { margin-bottom: 30px; }
+.agrandir { font-family: 'agrandir'; }
+
+.navbar { background-color: #677483; margin: 0; }
+.navbody a { color: #eeecec; }
+.dropdown-menu { background-color: #677483; color: #e7e7e7; }
+
+.km { height: 40px; padding-left: 30px; width: auto; }
+.kmnome { height: 40px; width: auto; }
+.collapse { margin-left: 1%; }
+.kmhome { margin-left: 10px; }
+
+/* Botões */
+.btn-light { color: #fff; background-color: #999; border-color: #999; }
+.btn-outline-dark { color: #fff; border-color: #666; }
+.btn-light:hover { background-color: #888; color: #fff; border-color: #888; }
+
+.btn-km {
+  background-color: #233f69; color: #fff; border-radius: 25px;
+  text-align: center; text-decoration: none; padding: 10px 20px; cursor: pointer;
 }
-.int{
-    display: flex;
-    width: 100vw;
-    height: 105vh;
-    flex-flow: row wrap;
+.btn-km:hover { background-color: #4c73b3; color: #fff; }
+
+/* ====== Layout das seções ====== */
+
+/* INT / HERO */
+.esquerda, .direita { padding: 0; }
+.int {
+  position: relative;
+  width: 100%;
 }
-.agrandir{
-    font-family: 'agrandir';
+
+/* Grid de cards do hero */
+.gallery .card { border: 0; background: transparent; }
+.gallery .ratio img { object-fit: cover; border-radius: .75rem; }
+
+/* SERVICES */
+.services { background-color: #cbcbcb; width: 100%; }
+.services .container { background: #fff; }
+.services .card-title { font-size: 1.1rem; }
+
+/* SOBRE KM */
+.sobre-km { background-color: #fff; width: 100%; }
+.sobre-km .card { border: 0; }
+
+/* ====== Responsividade ====== */
+
+/* Mobile-first: ajustes gerais */
+@media (max-width: 991.98px) {
+  .esquerda h1, .esquerda h4 { text-align: center; }
 }
-.card-left{
-    margin-top: 4vh;
-}
-.card-meio{
-    margin-top: 5vh;
-}
-.card-rigth{
-    margin-top: 6vh;
-}
-.services{
-    background-color: #cbcbcb;
-    width: 100vw;
-    height: 100vh;
-    position: relative; /* ou absolute, dependendo do fluxo */
-    z-index: 1; /*acima do conteúdo anterior */
-    margin-top: -25px; /* valor ajustado para começar a cobrir antes */
-    padding: 0px;
-}
-.services section{
-    background-color: #ffffff;    
-    width: 90vw;
-    height: 85vh;
-    display: flex;
-}
-.tituloeventos{
-    width: 40%;
-    height: 100%;
-    padding-top: 30vh;
-}
-.tituloeventos h4{
-    text-align: center;
-}
-.eventos{
-    width: 60%;
-    height: 100%;
-}
-.eventos .card{
-    width: 19vw;
-    margin-left: 20px;
-}
-.btn-km{
-    background-color: #233f69;
-    color: #ffffff;
-    border-radius: 25px;
-    Text-align: center;
-    text-decoration: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-.btn-km:hover{
-    background-color: #4c73b3;
-    color: #fff;
-}
-.eventos h5{
-    font-size: 130%;
-}
-.sobre-km{
-    background-color: #ffffff;
-    width: 100vw;
-    height: 100vh;
-    padding: 0px;
-}
-.sobre-km section{
-    background-color: #cbcbcb;    
-    width: 90vw;
-    height: 85vh;
-    display: flex;
-}
-.kmesquerda{
-    height: 100vh;
-    width: 40vw;
-}
-.kmdireita{
-    height: 100vh;
-    width: 60vw;
-}
-.direita .card{
-    width: 12vw;
+.int {
     position: relative;
-    z-index: 0; /* fica abaixo da services */
-    background-color: #233f6900;
+    padding-top: 4rem;  /* espaço pro texto */
+    padding-bottom: 3rem;
+    z-index: 1;
+  }
+  .int .esquerda h1 { font-size: 1.8rem; }
+  .int .esquerda h4 { font-size: 1rem; }
+  .gallery { margin-top: 1.5rem; }
+
+.direita {
+  position: relative;
+  z-index: 0; /* fica por trás */
+  margin-top: -30px; 
 }
-.card{
-    border: 0px;
-    background-color: #233f6900;
+.esquerda {margin-top: 60px;}
+
+/* Services sobrepondo a direita */
+.services {
+  position: relative;
+  z-index: 2; /* fica por cima */
+  margin-top: -80px; /* sobrepõe hero */
 }
 
-@media (max-width: 767px) {
-    .kmpanela{
-        display: none;
-    }
-    .esquerda{
-        width: 100vw;
-        height: 70vh;
-    }
-    .direita{
-        width: 100vw;
-        height: 100vh;
-    }
-    .int{
-        height: 170vh;
-    }
-    .services{
-        margin-top: 0px;
-    }
-    /*
-    .col-left{
-        display: none;
-    }
-    .col-right{
-        display: none;
-    }
-    .col-meio{
-        display: flex;
-        justify-content: space-between;
-    }
-    */
-    .col-sm{
-        margin-right: 0px;
-    }
-    .direita .card{
-        width: 16vw;
-        z-index: 1;
-    }
-    .services{
-    position: absolute; /* ou absolute, dependendo do fluxo */
-    z-index: 1; /*acima do conteúdo anterior */
-    margin-top: -25px; /* valor ajustado para começar a cobrir antes */
-    padding: 0px;
-    }
-    }
-@media (max-width: 850px) {
-    .kmpanela{
-        padding-left: 5vw;
-    }
-    }
-@media (max-width: 896px) {
-    .int-cards{
-        margin-top: 3vh;
-    }
-    .cardleft{
-        margin-top: 7vh;    
-    }
-    .cardmeio{
-        margin-top: 8vh;
-    }
-    .cardrigth{
-        margin-top: 8vh;
-    }
-    }
-@media (max-width: 410px) {
-    .kmdv{
-        display: none;
-        }
-    .kmdiv{
-        display: none;
-        }
-    }
-@media (min-width: 767px) {
-    .kmdiv{
-        display: none;
-        }
-    }
+/* Desktop (≥992px) – dá “respiro” para o hero em telas grandes */
+@media (min-width: 992px) {
+  .int { min-height: 80vh; }
+}
+
+@media (max-width: 768px) {
+  .services { margin-top: -20px; /* sobe menos no mobile */ }
+  .kmpanela { display: none; }
+  .col-responsive{ display: none; }
+}
+/* Opcional: telas muito pequenas */
+@media (max-width: 400px) {
+  .btn-km { width: 100%; }
+}
