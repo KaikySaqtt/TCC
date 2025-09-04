@@ -39,6 +39,8 @@ body { margin-bottom: 30px; }
 /* Grid de cards do hero */
 .gallery .card { border: 0; background: transparent; }
 .gallery .ratio img { object-fit: cover; border-radius: .75rem; }
+.card-meio{margin-top: 2vh;}
+.card-direita{margin-top: 3vh;}
 
 /* SERVICES */
 .services { background-color: #cbcbcb; width: 100%; }
@@ -78,11 +80,14 @@ body { margin-bottom: 30px; }
   z-index: 2; /* fica por cima */
   margin-top: -80px; /* sobrepõe hero */
 }
+.card-direita{margin-top: 0vh;}
+.card-meio{margin-top: 0vh;}
 
 /* Desktop (≥992px) – dá “respiro” para o hero em telas grandes */
 @media (min-width: 992px) {
   .int { min-height: 80vh; margin-top: -20px;}
   .direita{padding-left: 10px;}
+
 }
 
 @media (max-width: 768px) {

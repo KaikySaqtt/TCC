@@ -30,7 +30,7 @@ $db = open_database();
 
         <div class="col-lg-6 direita">
             <!-- Grid de cards (mosaico estático em HTML) -->
-            <div class="row g-3 row-cols-2 row-cols-md-3 gallery">
+            <div class="row g-3 row-cols-2 row-cols-md-3 gallery container">
                 <div class="col col-responsive">
                     <div class="card shadow-sm h-100">
                         <div class="ratio ratio-1x1">
@@ -39,14 +39,14 @@ $db = open_database();
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm h-100">
+                    <div class="card shadow-sm h-100 card-meio">
                         <div class="ratio ratio-1x1">
                             <img src="kmimagens/docepote.png" class="w-100 h-100" alt="Imagem 2">
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm h-100">
+                    <div class="card shadow-sm h-100 card-direita">
                         <div class="ratio ratio-1x1">
                             <img src="kmimagens/marmitas42.png" class="w-100 h-100" alt="Imagem 3">
                         </div>
@@ -60,14 +60,14 @@ $db = open_database();
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm h-100">
+                    <div class="card shadow-sm h-100 card-meio">
                         <div class="ratio ratio-1x1">
                             <img src="kmimagens/km2.png" class="w-100 h-100" alt="Imagem 5">
                         </div>
                     </div>
                 </div>
                 <div class="col col-responsive">
-                    <div class="card shadow-sm h-100">
+                    <div class="card shadow-sm h-100 card-direita">
                         <div class="ratio ratio-1x1">
                             <img src="kmimagens/marmitas4.png" class="w-100 h-100" alt="Imagem 6">
                         </div>
@@ -81,14 +81,14 @@ $db = open_database();
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm h-100">
+                    <div class="card shadow-sm h-100 card-meio">
                         <div class="ratio ratio-1x1">
                             <img src="kmimagens/docepote2.png" class="w-100 h-100" alt="Imagem 8">
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm h-100">
+                    <div class="card shadow-sm h-100 card-direita">
                         <div class="ratio ratio-1x1">
                             <img src="kmimagens/comida3.png" class="w-100 h-100" alt="Imagem 9">
                         </div>
@@ -115,7 +115,7 @@ $db = open_database();
                         <div class="card h-60 shadow-sm">
                             <img src="kmimagens/comida.png" class="card-img-top" alt="Jantares privativos">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Jantares privativos</h5>
+                                <h5 class="card-title">Jantares e almoços privativos</h5>
                                 <a href="#" class="btn btn-km">Ver mais</a>
                             </div>
                         </div>
@@ -124,11 +124,12 @@ $db = open_database();
                         <div class="card h-100 shadow-sm">
                             <img src="kmimagens/marmita2.png" class="card-img-top" alt="Marmitas e finger food">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Marmitas e finger food</h5>
+                                <h5 class="card-title">Marmitas e Dietas personalizadas</h5>
                                 <a href="#" class="btn btn-km">Ver mais</a>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

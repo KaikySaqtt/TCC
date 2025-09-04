@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>CRUD com Bootstrap</title>
-    <meta name="description" content="Material da aula de PW">
+    <title>personal Chef Karol Marques</title>
+    <meta name="description" content="Site da personal chef Karol Marques">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="<?php echo BASEURL; ?>inc/logo.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo BASEURL; ?>inc/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
@@ -34,7 +34,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" aria-expanded="false">
-                        <i class="fa-solid fa-star-half-stroke"></i> Agendamento
+                        <i class="fa-solid fa-calendar-days"></i> Agendamento
                     </a>
                 </li>
                 <li class="nav-item">
