@@ -19,83 +19,61 @@ $db = open_database();
 <section class="int container py-5">
     <div class="row align-items-center g-4">
         <div class="col-lg-6 text-center text-lg-start esquerda">
-            <h1 class="agrandir fw-bold">Um restaurante em sua residência</h1>
-            <h4 class="agrandir lh-base">
-                Desfrute de uma experiência culinária personalizada
+            <div class="container">
+                <h1 class="agrandir fw-bold">Um restaurante em sua residência</h1>
+                <h4 class="agrandir lh-base">Desfrute de uma experiência culinária personalizada
                 <br class="d-none d-lg-inline">com a personal chef Karol Marques
                 <br class="d-none d-lg-inline">tudo no conforto da sua própria casa!
-            </h4>
-            <a href="#" class="btn btn-km btn-lg mt-3">Começar</a>
+                </h4>
+                <a href="#" class="btn btn-km btn-lg mt-3">Começar</a>
+            </div>
         </div>
 
-        <div class="col-lg-6 direita">
-            <!-- Grid de cards (mosaico estático em HTML) -->
-            <div class="row g-3 row-cols-2 row-cols-md-3 gallery container">
-                <div class="col col-responsive">
-                    <div class="card shadow-sm h-100">
-                        <div class="ratio ratio-1x1">
-                            <img src="kmimagens/km1.png" class="w-100 h-100" alt="Imagem 1">
-                        </div>
-                    </div>
-                </div>
+    <div class="col-lg-6 direita">
+    <!-- Grid de cards (mosaico estático em HTML) -->
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-3 gallery">
+                <!-- Coluna 1 -->
                 <div class="col">
-                    <div class="card shadow-sm h-100 card-meio">
-                        <div class="ratio ratio-1x1">
-                            <img src="kmimagens/docepote.png" class="w-100 h-100" alt="Imagem 2">
-                        </div>
+                    <div class="card card-esquerda">
+                        <img src="kmimagens/km1.png" class="w-100 h-100" alt="">
+                    </div>
+                    <div class="card card-esquerda">
+                        <img src="kmimagens/docepote.png" class="w-100 h-100" alt="">
+                    </div>
+                    <div class="card card-esquerda">
+                        <img src="kmimagens/marmitas42.png" class="w-100 h-100" alt="">
                     </div>
                 </div>
+
+                <!-- Coluna 2 -->
                 <div class="col">
-                    <div class="card shadow-sm h-100 card-direita">
-                        <div class="ratio ratio-1x1">
-                            <img src="kmimagens/marmitas42.png" class="w-100 h-100" alt="Imagem 3">
-                        </div>
+                    <div class="card card-meio">
+                        <img src="kmimagens/docepote4.png" class="w-100 h-100" alt="">
+                    </div>
+                    <div class="card card-meio">
+                        <img src="kmimagens/km2.png" class="w-100 h-100" alt="">
+                    </div>
+                    <div class="card card-meio">
+                        <img src="kmimagens/marmitas4.png" class="w-100 h-100" alt="">
                     </div>
                 </div>
-                <div class="col col-responsive">
-                    <div class="card shadow-sm h-100">
-                        <div class="ratio ratio-1x1">
-                            <img src="kmimagens/docepote4.png" class="w-100 h-100" alt="Imagem 4">
-                        </div>
-                    </div>
-                </div>
+
+                <!-- Coluna 3 -->
                 <div class="col">
-                    <div class="card shadow-sm h-100 card-meio">
-                        <div class="ratio ratio-1x1">
-                            <img src="kmimagens/km2.png" class="w-100 h-100" alt="Imagem 5">
-                        </div>
+                    <div class="card card-direita">
+                        <img src="kmimagens/comida1.png" class="w-100 h-100" alt="">
                     </div>
-                </div>
-                <div class="col col-responsive">
-                    <div class="card shadow-sm h-100 card-direita">
-                        <div class="ratio ratio-1x1">
-                            <img src="kmimagens/marmitas4.png" class="w-100 h-100" alt="Imagem 6">
-                        </div>
+                    <div class="card card-direita">
+                        <img src="kmimagens/docepote2.png" class="w-100 h-100" alt="">
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm h-100">
-                        <div class="ratio ratio-1x1">
-                            <img src="kmimagens/comida1.png" class="w-100 h-100" alt="Imagem 7">
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm h-100 card-meio">
-                        <div class="ratio ratio-1x1">
-                            <img src="kmimagens/docepote2.png" class="w-100 h-100" alt="Imagem 8">
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card shadow-sm h-100 card-direita">
-                        <div class="ratio ratio-1x1">
-                            <img src="kmimagens/comida3.png" class="w-100 h-100" alt="Imagem 9">
-                        </div>
+                    <div class="card card-direita">
+                        <img src="kmimagens/comida3.png" class="w-100 h-100" alt="">
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 </section>

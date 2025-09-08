@@ -36,12 +36,10 @@ body { margin-bottom: 30px; }
   width: 100%;
 }
 
-/* Grid de cards do hero */
+/* Grid de cards do hero 
 .gallery .card { border: 0; background: transparent; }
 .gallery .ratio img { object-fit: cover; border-radius: .75rem; }
-.card-meio{margin-top: 2vh;}
-.card-direita{margin-top: 3vh;}
-
+*/
 /* SERVICES */
 .services { background-color: #cbcbcb; width: 100%; }
 .services .container { background: #fff; }
@@ -51,9 +49,29 @@ body { margin-bottom: 30px; }
 .sobre-km { background-color: #fff; width: 100%; }
 .sobre-km .card { border: 0; }
 
+/* ==== GALLERY: estilo de card em TODAS as larguras ==== */
+.gallery .card {
+  border: 0;
+  background: #fff;         /* dá o “tile” branco */
+  border-radius: 12px;      /* arredondamento */
+  overflow: hidden;         /* imagem não vaza dos cantos */
+  box-shadow: 0 6px 16px rgba(0,0,0,.08); /* “espessamento”/elevação */
+  margin-bottom: 1rem;
+}
+
+/* garante que a imagem respeite o raio em qualquer estrutura */
+.gallery .card > img,
+.gallery .card .ratio,
+.gallery .card .ratio > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
+  object-fit: cover;
+}
 /* ====== Responsividade ====== */
 
-/* Mobile-first: ajustes gerais */
+/* Abaixo de 991 px de largura: ajustes gerais */
 @media (max-width: 991.98px) {
   .esquerda h1, .esquerda h4 { text-align: center; }
 }
@@ -78,16 +96,34 @@ body { margin-bottom: 30px; }
 .services {
   position: relative;
   z-index: 2; /* fica por cima */
-  margin-top: -80px; /* sobrepõe hero */
+  margin-top: -120px; /* sobrepõe hero */
 }
-.card-direita{margin-top: 0vh;}
-.card-meio{margin-top: 0vh;}
 
 /* Desktop (≥992px) – dá “respiro” para o hero em telas grandes */
 @media (min-width: 992px) {
-  .int { min-height: 80vh; margin-top: -20px;}
+  .int { min-height: 80vh; margin-top: -30px;}
   .direita{padding-left: 10px;}
+ .gallery .col {
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery .card {
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: .75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  .gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  } 
 
+  .card-esquerda { margin-top: 0; }
+  .card-meio     { margin-top: 1vh; }
+  .card-direita  { margin-top: 2vh; }
 }
 
 @media (max-width: 768px) {
@@ -100,5 +136,5 @@ body { margin-bottom: 30px; }
 }
 /* Opcional: telas muito pequenas */
 @media (max-width: 400px) {
-  .btn-km { width: 100%; }
+  .btn-km { width: 80%; }
 }
