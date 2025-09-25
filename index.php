@@ -127,7 +127,7 @@ $db = open_database();
                         <div class="card h-100 shadow-sm">
                             <img src="kmimagens/marmita2.png" class="card-img-top" alt="Marmitas e finger food">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Marmitas e Dietas personalizadas para sua necessidade</h5>
+                                <h5 class="card-title">Marmitas e Dietas personalizadas para você</h5>
                                 <a href="#" class="btn btn-km">Ver mais</a>
                             </div>
                         </div>

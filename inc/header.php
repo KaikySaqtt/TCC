@@ -7,16 +7,17 @@
     <title>personal Chef Karol Marques</title>
     <meta name="description" content="Site da personal chef Karol Marques">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="<?php echo BASEURL; ?>inc/logo.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo BASEURL; ?>inc/imgs/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-md navbody navbar-dark fixed-top">
         <div class="kmhome">
-            <a href="<?php echo BASEURL; ?>"> <img class="kmnome" src="/TCC/inc/kmnome.png"> </a>
+            <a href="<?php echo BASEURL; ?>"> <img class="kmnome" src="/TCC/inc/imgs/kmnome.png"> </a>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,8 +29,8 @@
                         <i class="fa-solid fa-kitchen-set"></i> Serviços
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="<?php echo BASEURL; ?>customers/add.php"><i class="fa-solid fa-utensils"></i> Jantares almoços privados</a></li>
-                        <li><a class="dropdown-item" href="<?php echo BASEURL; ?>customers"><i class="fa-solid fa-burger"></i> Marmitas e finger foods</a></li>
+                        <li><a class="dropdown-item" href="<?php echo BASEURL; ?>jantares/"><i class="fa-solid fa-utensils"></i> Jantares almoços privados</a></li>
+                        <li><a class="dropdown-item" href="<?php echo BASEURL; ?>marmitas-e-dietas/"><i class="bi bi-wallet-fill"></i> Marmitas e dietas</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -39,7 +40,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" aria-expanded="false">
-                        <i class="fa-solid fa-person-dress"></i> Karol Marques
+                        <i class="fa-solid fa-person-dress"></i> Sobre Karol 
                     </a>
                 </li>
                 <?php if (isset($_SESSION['user'])): // Verifica se está logado ?>
@@ -58,7 +59,7 @@
                 <li>
                     <ul class="navbar-nav kmpanela">
                         <li class="nav-item">
-                            <img class="km" src="/TCC/inc/kmpanela.png">
+                            <img class="km" src="/TCC/inc/imgs/kmpanela.png">
                         </li>
                     </ul>
                 </li>
