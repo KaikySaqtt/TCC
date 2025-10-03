@@ -14,8 +14,15 @@ $db = open_database();
     <?php endif;
     clear_messages(); ?>
 <?php endif; ?>
-<div class="a" style="margin-top: 400px;">
- 
-    
+<div class="img-fundo">
+    <div class="texto-inicial-jantares text-center">
+        <h1 class="agrandir">Experiência de um restaurante <br>em sua residência</h1>
+        <a href="#" class="btn btn-km btn-lg mt-3">Pedir orçamento</a>
+    </div>
+</div>
+<div class="mais-info-jantares rounded-3 container">
+     <section>
+            
+     </section>
 </div>
 <?php include(FOOTER_TEMPLATE); ?>

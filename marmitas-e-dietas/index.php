@@ -14,7 +14,7 @@ $db = open_database();
     <?php endif;
     clear_messages(); ?>
 <?php endif; ?>
-<div class="a" style="margin-top: 400px;">
+
  
     
 </div>
