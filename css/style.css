@@ -63,7 +63,7 @@ body { margin-bottom: 30px; }
 .texto-inicial-jantares h1{color: rgb(223, 223, 223)}
 .mais-info-jantares{
   width: 80vw;
-  height: 50vh;
+  height: 100%;
   position: relative;
   z-index: 2; /* fica por cima */
   margin-top: -100px; /* sobrepõe hero */

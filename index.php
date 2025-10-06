@@ -119,7 +119,7 @@ $db = open_database();
                             <img src="kmimagens/comida.png" class="card-img-top" alt="Jantares privativos">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Jantares e almoços privativos aonde você quiser</h5>
-                                <a href="#" class="btn btn-km">Ver mais</a>
+                                <a href="../TCC/jantares/" class="btn btn-km">Ver mais</a>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ $db = open_database();
                             <img src="kmimagens/marmita2.png" class="card-img-top" alt="Marmitas e finger food">
                             <div class="card-body text-center">
                                 <h5 class="card-title">Marmitas e Dietas personalizadas para você</h5>
-                                <a href="#" class="btn btn-km">Ver mais</a>
+                                <a href="../TCC/marmitas-e-dietas/" class="btn btn-km">Ver mais</a>
                             </div>
                         </div>
                     </div>
