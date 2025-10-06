@@ -53,7 +53,6 @@ body { margin-bottom: 30px; }
 .img-fundo{
   width: 100vw;
   height: 100vh;
-  background-image: url(../kmimagens/background-jantares.png);
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   z-index: 1;
