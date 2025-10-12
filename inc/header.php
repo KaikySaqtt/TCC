@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
+    <script rel="stylesheet" href="<?php echo BASEURL; ?>js/util.js"> </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 

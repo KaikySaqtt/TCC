@@ -68,6 +68,46 @@ body { margin-bottom: 30px; }
   margin-top: -100px; /* sobrepõe hero */
   background-color: #e7e7e7;
 }
+.btn-jantares{width: 100%;}
+/* ====== Agendamento jantares ====== */
+/* ====== Estilos Formulário de Orçamento ====== */
+.form-card {
+    background-color: #fff; /* Fundo branco para o card, contrastando com o #e7e7e7 da section */
+    font-family: 'agrandir', sans-serif; /* Usa a sua fonte personalizada */
+    border: none;
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 650px; /* Largura máxima para o formulário */
+    margin-top: 80px;
+}
+
+.form-title {
+    color: #233f69; /* Cor primária que você já usa */
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-label {
+    color: #677483; /* Cor secundária que você já usa */
+    font-weight: 500;
+}
+
+/* Estilo para os inputs quando focados, usando sua cor primária */
+.form-control:focus,
+.form-check-input:focus {
+    border-color: #233f69;
+    box-shadow: 0 0 0 0.25rem rgba(35, 63, 105, 0.25);
+}
+
+/* Estilo para checkboxes e radios marcados, usando sua cor primária */
+.form-check-input:checked {
+    background-color: #233f69;
+    border-color: #233f69;
+}
+
+
 /* ====== Responsividade ====== */
 
 /* Mobile-first: ajustes gerais */
@@ -105,7 +145,11 @@ body { margin-bottom: 30px; }
   .card-meio{margin-top: 1.8vh;}
   .card-direita{margin-top: 2.9vh;}
 }
-
+/* Esconde botão "ver mais" em telas maiores 
+@media (min-width: 768px) {
+  .btn-jantares{display: none;}
+}
+*/
 @media (max-width: 768px) {
   .services { margin-top: -20px; /* sobe menos no mobile */ }
   .kmpanela { display: none; }
@@ -116,6 +160,13 @@ body { margin-bottom: 30px; }
 }
 /* Opcional: telas muito pequenas */
 @media (max-width: 400px) {
-  .btn-km { width: 80%; }
-  .services {margin-top: -40px;}
+  .btn-km {
+    width: 80%;
+    display: block; /* Garante que o botão se comporte como um bloco */
+    margin-left: auto; /* Adiciona margem automática à esquerda */
+    margin-right: auto; /* Adiciona margem automática à direita */
+  }
+  .services {
+    margin-top: -40px;
+  }
 }

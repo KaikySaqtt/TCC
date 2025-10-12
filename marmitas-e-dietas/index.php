@@ -17,7 +17,7 @@ $db = open_database();
 <div class="img-fundo" style="background-image: url(../kmimagens/background-jantares.png);">
     <div class="texto-inicial-jantares text-center">
         <h1 class="agrandir">Experiência de um restaurante <br>em sua residência</h1>
-        <a href="../jantares/agendamento.php" class="btn btn-km btn-lg mt-3">Pedir orçamento</a>
+        <a href="../marmitas-e-dietas/agendamento.php" class="btn btn-km btn-lg mt-3">Pedir orçamento</a>
     </div>
 </div>
 <div class="mais-info-jantares rounded-3 container">

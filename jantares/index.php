@@ -22,33 +22,33 @@ $db = open_database();
 </div>
 <div class="mais-info-jantares rounded-3 container">
     <section>
-        <h2 class="agrandir text-center pt-4">Viva um dos melhores restaurante aonde você desejar</h2>
-        <h5 class="text-center">Oferecemos diversos planos, venha conferir e realizar um orçamento!</h5>
-        <div class="row g-4 row-cols-1 row-cols-sm-3 mt-3">
+        <h2 class="agrandir text-center pt-4">Viva um restaurante profissional em sua casa</h2>
+        <h5 class="text-center">Cardápio personalizado pelo cliente, realize seu orçamento agora!</h5>
+        <div class="row g-4 row-cols-1 row-cols-md-3 mt-3">
             <div class="col"> 
-                <div class="card shadow-sm" style="width:95%; heigth: auto">
+                <div class="card shadow-sm" style="width:95%; height: auto">
                     <img src="../kmimagens/comida.png" class="card-img-top" alt="Jantares privativos">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Jantares e almoços privativos aonde você quiser</h5>
-                        <a href="../TCC/jantares/" class="btn btn-km">Ver mais</a>
+                        <h5 class="card-title pb-1">Pratos <br> personalizados</h5>
+                        <a href="../TCC/jantares/" class="btn btn-km btn-jantares">ir para orçamento</a>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card shadow-sm" style="width:95%; heigth: auto">
-                    <img src="../kmimagens/marmita2.png" class="card-img-top" alt="Marmitas">
+                <div class="card shadow-sm" style="width:95%; height: auto">
+                    <img src="../kmimagens/docepote.png" class="card-img-top" alt="Marmitas">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Marmitas e Dietas personalizadas para você</h5>
-                        <a href="../TCC/marmitas-e-dietas/" class="btn btn-km">Ver mais</a>
+                        <h5 class="card-title pb-1">Sobremesas <br> especias</h5>
+                        <a href="../TCC/marmitas-e-dietas/" class="btn btn-km btn-jantares">ir para orçamento</a>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card shadow-sm mb-3" style="width:95%; heigth: auto">
+                <div class="card shadow-sm mb-3" style="width:95%; height: auto">
                     <img src="../kmimagens/marmita2.png" class="card-img-top" alt="Marmitas e finger food">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Marmitas e Dietas personalizadas para você</h5>
-                        <a href="../TCC/marmitas-e-dietas/" class="btn btn-km">Ver mais</a>
+                        <h5 class="card-title pb-1">Drinks c/s <br>álcool</h5>
+                        <a href="../TCC/marmitas-e-dietas/" class="btn btn-km btn-jantares">ir para orçamento</a>
                     </div>
                 </div>
             </div>

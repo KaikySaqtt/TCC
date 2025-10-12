@@ -14,22 +14,68 @@ $db = open_database();
     <?php endif;
     clear_messages(); ?>
 <?php endif; ?>
-<div class="container mt-5">
-    <form class="pt-5">
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
+<head>
+    <style>
+        body {
+            background-color: #9b9b9bff;
+        }
+    </style>
+</head>
+<section class="container my-5">
+    <div class="form-card mx-auto">
+        <h2 class="form-title">Solicitar Orçamento</h2>
+        <form>
+            <div class="mb-3">
+                <label for="quantidadePessoas" class="form-label">Quantas pessoas terá no evento?</label>
+                <input type="number" class="form-control" id="quantidadePessoas" name="quantidade_pessoas" placeholder="Ex: 15" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="endereco" class="form-label">Endereço completo do evento</label>
+                <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua, número, bairro e cidade" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label d-block">Qual a refeição principal?</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tipo_refeicao" id="almoco" value="almoco">
+                    <label class="form-check-label" for="almoco">Almoço</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="tipo_refeicao" id="jantar" value="jantar">
+                    <label class="form-check-label" for="jantar">Jantar</label>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label d-block">Deseja incluir adicionais?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="sim" id="incluirSobremesa" name="incluir_sobremesa">
+                    <label class="form-check-label" for="incluirSobremesa">
+                        Sobremesa
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="sim" id="incluirDrinks" name="incluir_drinks">
+                    <label class="form-check-label" for="incluirDrinks">
+                        Drinks
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label for="detalhesPedido" class="form-label">Observações</label>
+                <textarea class="form-control" id="detalhesPedido" name="detalhes_pedido" rows="4" placeholder="Detalhe sobre os seus pedidos aqui..."></textarea>
+            </div>
+
+            <div class="d-grid">
+                <h6 class="form-title">Você será levado para o whatsapp de nossa personal chef!</h6>
+                <button type="button" class="btn btn-km" onclick="sendwhatsappjantar()">Enviar orçamento</button>
+            </div>
+        </form>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+</section>
+
+
 <?php include(FOOTER_TEMPLATE); ?>
