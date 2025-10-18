@@ -12,7 +12,7 @@ $db = open_database();
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif;
-    clear_messages(); ?>
+clear_messages(); ?>
 <?php endif; ?>
 
 <!-- INT / HERO -->
@@ -25,7 +25,7 @@ $db = open_database();
                 <br class="d-none d-lg-inline">com a personal chef Karol Marques
                 <br class="d-none d-lg-inline">tudo no conforto da sua própria casa!
             </h4>
-            <a href="#" class="btn btn-km btn-lg mt-3">Começar</a>
+            <a href="/TCC/admin/index_clientes.php" class="btn btn-km btn-lg mt-3">Começar</a>
         </div>
 
         <div class="col-lg-6 direita">

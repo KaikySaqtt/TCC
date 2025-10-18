@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/awesome/all.min.css">
     <link rel="stylesheet" href="<?php echo BASEURL; ?>css/style.css">
-    <script rel="stylesheet" href="<?php echo BASEURL; ?>js/util.js"> </script>
+    <script rel="stylesheet" href="<?php echo BASEURL; ?>js/main.js"> </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
@@ -33,11 +33,6 @@
                         <li><a class="dropdown-item" href="<?php echo BASEURL; ?>jantares/"><i class="fa-solid fa-utensils"></i> Jantares almoços privados</a></li>
                         <li><a class="dropdown-item" href="<?php echo BASEURL; ?>marmitas-e-dietas/"><i class="bi bi-wallet-fill"></i> Marmitas e dietas</a></li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" aria-expanded="false">
-                        <i class="fa-solid fa-calendar-days"></i> Agendamento
-                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" aria-expanded="false">
@@ -71,7 +66,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo BASEURL; ?>inc/logout.php">
                             <!--<?php echo $_SESSION['user']; ?>--> Desconectar <i class="fa-solid fa-person-walking-arrow-right"></i>
-                        </a>
+                        </a>    
                     </li>
                 <?php else : ?>
                     <li class="nav-item">

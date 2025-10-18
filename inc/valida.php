@@ -1,12 +1,12 @@
 <?php
-// Iniciar buffer de saída para evitar problemas com headers já enviados
+// Iniciar buffer de saída para evitar erros de header
 ob_start();
 
 include("../config.php");
 include(DBAPI);
 include(HEADER_TEMPLATE);
 
-// Iniciar sessão antes de qualquer outra coisa
+// Iniciar sessão antes de qualquer coisa
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -18,55 +18,65 @@ if (empty($_POST['login']) || empty($_POST['senha'])) {
 }
 
 try {
-    // Abre a conexão com o banco de dados usando PDO
+    // Abre conexão com o banco (PDO)
     $bd = open_database();
 
-    // Preparar dados
+    // Captura e prepara os dados
     $usuario = $_POST['login'];
-    $senha = criptografia($_POST['senha']);
+    $senhaDigitada = $_POST['senha'];
 
-    // Usar prepared statements para evitar SQL Injection com PDO
-    $sql = "SELECT id, nome, username, password FROM usuarios WHERE username = :username LIMIT 1";
+    // Buscar usuário pelo CPF/CNPJ
+    $sql = "SELECT id_user, name, cpf_cnpj, password 
+            FROM tab_usuarios 
+            WHERE cpf_cnpj = :cpf_cnpj 
+            LIMIT 1";
     $stmt = $bd->prepare($sql);
-    
-    // Bind dos parâmetros para a consulta
-    $stmt->bindParam(':username', $usuario, PDO::PARAM_STR);
-    //$stmt->bindParam(':password', $senha, PDO::PARAM_STR);
-    
-    // Executar a consulta
-    $stmt->execute();   
+    $stmt->bindParam(':cpf_cnpj', $usuario, PDO::PARAM_STR);
+    $stmt->execute();
 
-    // Verificar se o usuário foi encontrado
+    // Verifica se encontrou o usuário
     if ($stmt->rowCount() > 0) {
-        // Dados do usuário
         $dados = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        // Definir os dados na sessão
-        $_SESSION['id'] = $dados['id'];
-        $_SESSION['nome'] = $dados['nome'];
-        $_SESSION['user'] = $dados['username'];
 
-        // Mensagem de boas-vindas
-        $_SESSION['message'] = "Bem-vindo, " . $dados['nome'] . "!";
-        $_SESSION['type'] = "success";
+        // Verificar a senha com password_verify()
+        if (password_verify($senhaDigitada, $dados['password'])) {
 
+            // Armazena os dados na sessão
+            $_SESSION['user'] = [
+                'name' => $dados['name'],
+                'cpf_cnpj' => $dados['cpf_cnpj'],
+                'id_user' => $dados['id_user']
+            ];
+
+
+            $_SESSION['message'] = "Bem-vindo, " . htmlspecialchars($dados['name']) . "!";
+            $_SESSION['type'] = "success";
+
+            header("Location: " . BASEURL . "index.php");
+            exit;
+        } else {
+            // Senha incorreta
+            $_SESSION['message'] = "Senha incorreta. Tente novamente.";
+            $_SESSION['type'] = "danger";
+            header("Location: " . BASEURL . "index.php");
+            exit;
+        }
+    } else {
+        // Usuário não encontrado
+        $_SESSION['message'] = "CPF/CNPJ não encontrado.";
+        $_SESSION['type'] = "danger";
         header("Location: " . BASEURL . "index.php");
         exit;
-    } else {
-        // Credenciais incorretas
-        $_SESSION['message'] = "Usuário ou senha incorretos.";
-        $_SESSION['type'] = "danger";
-        header("Location: " . BASEURL . "inc/login.php");
-        exit;
     }
+
 } catch (Exception $e) {
-    // Tratamento de erro
+    // Tratamento de erro (por exemplo, erro de conexão)
     $_SESSION['message'] = "Ocorreu um erro: " . $e->getMessage();
     $_SESSION['type'] = "danger";
-    header("Location: " . BASEURL . "inc/login.php");
+    header("Location: " . BASEURL . "index.php");
     exit;
 }
 
-// Limpar buffer de saída e enviar conteúdo
+// Limpa o buffer de saída
 ob_end_flush();
 ?>

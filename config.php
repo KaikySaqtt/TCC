@@ -1,6 +1,6 @@
 <?php
     /** O nome do banco de dados */
-    define("DB_NAME", "wda_catalog");
+    define("DB_NAME", "km_catalog");
 
     /** Usuário do banco de dados MySQL */
     define("DB_USER", "root");

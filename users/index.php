@@ -1,4 +1,4 @@
-<?php if (!isset($_SESSION)) session_start(); ?>
+
 <?php
   // esse é o index.php
   if (!(isset($_SESSION))) session_start();

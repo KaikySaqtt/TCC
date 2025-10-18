@@ -9,8 +9,8 @@
         <div class="row">
             <!-- User input -->
             <div class="form-floating col-12 mb-2">
-                <input type="text" class="form-control" id="log" placeholder="Usuário" name="login">
-                <label for="log">Usuário</label>
+                <input type="text" class="form-control" id="log" placeholder="CPF ou CNPJ" name="login">
+                <label for="log">CPF/CNPJ</label>
             </div>
 
             <!-- Password input -->
