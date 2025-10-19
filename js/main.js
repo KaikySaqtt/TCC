@@ -1,61 +1,39 @@
-$('#delete-modal').on('show.bs.modal', function (event) {
+$('#modal_jantares').on('show.bs.modal', function (event) {
 
   var button = $(event.relatedTarget);
-  var id = button.data('customer');
+  var id = button.data('id');
 
   var modal = $(this);
-  modal.find('.modal-title').text('Excluir Cliente: ' + id);
-  modal.find('.modal-body').text('Deseja realmente excluir o cliente ' + id + '?');
-  modal.find('#confirm').attr('href', 'delete.php?id=' + id);
+  modal.find('.modal-title').text('Excluir Jantar com o id = ' + id );
+  modal.find('.modal-body').text('Deseja realmente excluir o jantar com o id = ' + id + '?');
+  modal.find('#confirm').attr('href', 'delete.php?id_jan=' + id);
 });
 
-$('#delete-gerente-modal').on('show.bs.modal', function (event) {
+$('#modal_marmitas').on('show.bs.modal', function (event) {
 
   var button = $(event.relatedTarget);
-  var id = button.data('customer');
+  var id = button.data('id');
 
   var modal = $(this);
-  modal.find('.modal-title').text('Excluir Gerente: ' + id);
-  modal.find('.modal-body').text('Deseja realmente excluir o gerente ' + id + '?');
-  modal.find('#confirm').attr('href', 'delete.php?id=' + id);
-});
-
-$('#delete-modal-marmitas').on('show.bs.modal', function (event) {
-
-  var button = $(event.relatedTarget);
-  var id = button.data('marmita');
-
-  var modal = $(this);
-  modal.find('.modal-title').text('Excluir o orçamento com id = ' + id);
-  modal.find('.modal-body').text('Deseja realmente excluir o orçamento com id= ' + id + '?');
+  modal.find('.modal-title').text('Excluir Marmita com o id = ' + id );
+  modal.find('.modal-body').text('Deseja realmente excluir a marmita com o id = ' + id + '?');
   modal.find('#confirm').attr('href', 'delete.php?id_mar=' + id);
-});
-
-$('#delete-user-modal').on('show.bs.modal', function (event) {
-
-  var button = $(event.relatedTarget);
-  var id = button.data('usuario');
-
-  var modal = $(this);
-  modal.find('.modal-title').text('Excluir Usuário: ' + id);
-  modal.find('.modal-body').text('Deseja realmente excluir o usuário ' + id + '?');
-  modal.find('#confirm').attr('href', 'delete.php?id=' + id);
 });
 
 function sendwhatsappjantar() {
   // Substitua este número pelo número de telefone de destino
   var phonenumber = "+5515988185623";
 
-  var quantiadepessoas = document.querySelector('#quantidadePessoas').value;
+  var quantiadepessoas = document.querySelector('#quantida_pessoas').value;
   var endereco = document.querySelector('#endereco').value;
   var almoco = document.querySelector('#almoco').checked;
   var jantaroualmoco = "";
-  var sobremesa = document.querySelector('#incluirSobremesa').checked;
+  var sobremesa = document.querySelector('#incluir_sobremesa').checked;
   var sobremesasimoounao = '';
   var drinkssimoounao = '';
-  var data = document.querySelector('#data_evento').value;
-  var drinks = document.querySelector('#incluirDrinks').checked;
-  var detalhes = document.querySelector('#detalhesPedido').value;
+  var data = document.querySelector('#data_do_evento').value;
+  var drinks = document.querySelector('#incluir_drinks').checked;
+  var detalhes = document.querySelector('#detalhes_pedido').value;
 
   if (almoco == true){
     jantaroualmoco = "almoço"
@@ -79,7 +57,6 @@ function sendwhatsappjantar() {
     + "*Data : *" + data + "%0a"
     + "*Sobremesa :* " + sobremesasimoounao + "%0a"
     + "*Drinks :* " + drinkssimoounao + "%0a"
-    + "*Sobremesa :* " + sobremesa + "%0a"
     + "*Jantar ou almoço :* " + jantaroualmoco + "%0a"
     + "*Detalhamento dos pratos :* " + detalhes + "%0a%0a";
 
@@ -95,7 +72,7 @@ function sendwhatsappmarmita() {
   var fit_ou_normal = "";
   var dieta_ou_nao = "";
   var dieta = document.querySelector('#planejar_dieta').checked;
-  var detalhes = document.querySelector('#detalhesPedido').value;
+  var detalhes = document.querySelector('#detalhes_pedido').value;
 
   if (fit == true){
     fit_ou_normal = "fit"

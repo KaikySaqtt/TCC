@@ -17,7 +17,7 @@
 
     /** caminho no server para o sistema **/
     if ( !defined("BASEURL") )
-        define("BASEURL", "/TCC /");
+        define("BASEURL", "/TCC/");
 
     /** caminho do arquivo de banco de dados **/
     if ( !defined("DBAPI") )

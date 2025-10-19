@@ -1,16 +1,9 @@
 <?php if (!isset($_SESSION)) session_start(); ?>
 <?php
-    
-    if (isset($_SESSION['user'])) {
     if ($_SESSION['user']['id_user'] != 1) {
         $_SESSION['message'] = "Você precisa ser administrador para acessar esse recurso!";
         $_SESSION['type'] = "danger";
         header("Location: " .  "/TCC/clientes/index.php");
-    }
-    }else {
-    $_SESSION['message'] = "Você precisa estar logado e ser administrador para acessar esse recurso!";
-    $_SESSION['type'] = "danger";
-    header("Location: " . "/TCC/jantares/index.php");
     }
     include('functions.php');
     index();
@@ -71,11 +64,11 @@
                                 <td><?php echo $jantar['detalhes_jan']; ?></td>
                                 <!--<td>< echo formataphone($usuario['telefone']); ?></td>-->
                                 <td class="actions text-right">
-                                    <a href="view.php?id=<?php echo $jantar['id_jan']; ?>" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visualizar</a>
-                                    <a href="edit.php?id=<?php echo $jantar['id_jan']; ?>" class="btn btn-sm btn-secondary"><i class="fa fa-file-pen"></i> Editar</a>
-                                    <a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-modal" data-customer="<?php echo $jantar['id_jan']; ?>">
+                                    <!--<a href="view.php?id=<?php //echo $jantar['id_jan']; ?>" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visualizar</a>-->
+                                    <a href="edit.php?id_jan=<?php echo $jantar['id_jan']; ?>" class="btn btn-sm btn-secondary"><i class="fa fa-file-pen"></i> Editar</a>
+                                    <a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#modal_jantares" data-id="<?php echo $jantar['id_jan']; ?>">
                                         <i class="fa fa-trash-can"></i> Excluir
-                                    </a>
+                                    </a>    
                                 </td>
                             </tr>
                     <?php endforeach; ?>

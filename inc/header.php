@@ -40,14 +40,15 @@
                     </a>
                 </li>
                 <?php if (isset($_SESSION['user'])): // Verifica se está logado ?>
-                    <?php if ($_SESSION['user'] == "admin"): // Verifica se está logado como admin ?>
+                    <?php if ($_SESSION['user']['id_user'] == "1"): // Verifica se está logado como admin ?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user-lock"></i> ADM
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="<?php echo BASEURL; ?>users/add.php"><i class="fa-solid fa-user-tie"></i> Clientes registrados</a></li>
-                                <li><a class="dropdown-item" href="<?php echo BASEURL; ?>users"><i class="fa-solid fa-user-lock"></i> Serviços encomendados</a></li>
+                                <li><a class="dropdown-item" href="<?php echo BASEURL; ?>admin/clientes/"><i class="fa-solid fa-user-tie"></i> Clientes registrados</a></li>
+                                <li><a class="dropdown-item" href="<?php echo BASEURL; ?>admin/jantares/"><i class="fa-solid fa-user-tie"></i> Orçamentos de eventos</a></li>
+                                <li><a class="dropdown-item" href="<?php echo BASEURL; ?>admin/marmitas/"><i class="fa-solid fa-user-tie"></i> Orçamento de marmitas</a></li>
                             </ul>
                         </li>
                     <?php endif; ?>

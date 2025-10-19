@@ -7,7 +7,7 @@ $jantares = null;
 $jantar = null;
 
 /**
- *  Listagem de Clientes
+ *  Listagem de orçamentos dos jantares
  */
 function index()
 {
@@ -24,12 +24,12 @@ function index()
 /**
  *  Visualização dos orçamentos dos jantares
  */
-function view($id = null)
+function view($id_jan = null)
 {
     global $jantar;
     $db = open_database();
     try {
-        $stmt = $db->prepare('SELECT * FROM tab_jantares WHERE id_jan = :id_jan');
+        $stmt = $db->prepare('SELECT * FROM tab_orcamento_jantar WHERE id_jan = :id_jan');
         $stmt->bindParam(':id_jan', $id_jan, PDO::PARAM_INT);
         $stmt->execute();
         $jantar = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -37,109 +37,58 @@ function view($id = null)
         echo 'Erro ao visualizar orçamentos de jantares: ' . $e->getMessage();
     }
 }
-
 /**
- *  Cadastro de Clientes
+ * Edita um orçamento existente
  */
-function add()
+function edit($id_jan, $postData)
 {
-    if (!empty($_POST['jantar'])) {
-        $today = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));
-        $jantar = $_POST['jantar'];
-        $jantar['modified'] = $jantar['created'] = $today->format('Y-m-d H:i:s');
+    if (!$postData) {
+        return false; // nada a fazer
+    }
 
-        $db = open_database();
-        try {
-            $stmt = $db->prepare('INSERT INTO customers 
-                (name, cpf_cnpj, birthdate, address, hood, zip_code, city, state, phone, ie, created, modified) 
-                VALUES 
-                (:name, :cpf_cnpj, :birthdate, :address, :hood, :zip_code, :city, :state, :phone, :ie, :created, :modified)');
+    $db = open_database();
 
-            // Bind dos parâmetros para evitar SQL Injection
-            $stmt->bindParam(':name', $jantar['name'], PDO::PARAM_STR);
-            $stmt->bindParam(':cpf_cnpj', $jantar['cpf_cnpj'], PDO::PARAM_STR);
-            $stmt->bindParam(':birthdate', $jantar['birthdate'], PDO::PARAM_STR);
-            $stmt->bindParam(':address', $jantar['address'], PDO::PARAM_STR);
-            $stmt->bindParam(':hood', $jantar['hood'], PDO::PARAM_STR);
-            $stmt->bindParam(':zip_code', $jantar['zip_code'], PDO::PARAM_STR);
-            $stmt->bindParam(':city', $jantar['city'], PDO::PARAM_STR);
-            $stmt->bindParam(':state', $jantar['state'], PDO::PARAM_STR);
-            $stmt->bindParam(':phone', $jantar['phone'], PDO::PARAM_STR);
-            $stmt->bindParam(':ie', $jantar['ie'], PDO::PARAM_STR);
-            $stmt->bindParam(':created', $jantar['created'], PDO::PARAM_STR);
-            $stmt->bindParam(':modified', $jantar['modified'], PDO::PARAM_STR);
+    try {
+        $stmt = $db->prepare('UPDATE tab_orcamento_jantar 
+            SET quantidade_pessoas = :quantidade_pessoas, 
+                cpf_cnpj_usuario = :cpf_cnpj_usuario,   
+                jantar_ou_almoco = :jantar_ou_almoco, 
+                drinks = :drinks, 
+                detalhes_jan = :detalhes_jan
+            WHERE id_jan = :id_jan');
 
-            $stmt->execute();
+        $quantidade_pessoas = $postData['quantidade_pessoas'] ?? null;
+        $cpf_cnpj_usuario   = $postData['cpf_cnpj_usuario'] ?? null;
+        $jantar_ou_almoco   = $postData['jantar_ou_almoco'] ?? null;
+        $drinks             = $postData['drinks'] ?? null;
+        $detalhes_jan       = $postData['detalhes_jan'] ?? null;
 
-            header('Location: index.php');
-            exit;
-        } catch (PDOException $e) {
-            echo 'Erro ao adicionar cliente: ' . $e->getMessage();
-        }
+        $stmt->bindParam(':quantidade_pessoas', $quantidade_pessoas, PDO::PARAM_INT);
+        $stmt->bindParam(':cpf_cnpj_usuario', $cpf_cnpj_usuario, PDO::PARAM_STR);
+        $stmt->bindParam(':jantar_ou_almoco', $jantar_ou_almoco, PDO::PARAM_STR);
+        $stmt->bindParam(':drinks', $drinks, PDO::PARAM_STR);
+        $stmt->bindParam(':detalhes_jan', $detalhes_jan, PDO::PARAM_STR);
+        $stmt->bindParam(':id_jan', $id_jan, PDO::PARAM_INT);
+
+        $stmt->execute();
+        return true;
+
+    } catch (PDOException $e) {
+        echo 'Erro ao atualizar orçamento de jantar: ' . $e->getMessage();
+        return false;
     }
 }
 
 /**
- * Edita um cliente existente
- */
-function edit()
-{
-    $new = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));
-
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        if (isset($_POST['jantar'])) {
-            $jantar = $_POST['jantar'];
-            $jantar['modified'] = $new->format('Y-m-d H:i:s');
-
-            $db = open_database();
-            try {
-                $stmt = $db->prepare('UPDATE customers 
-                    SET name = :name, cpf_cnpj = :cpf_cnpj, birthdate = :birthdate, address = :address, 
-                        hood = :hood, zip_code = :zip_code, city = :city, state = :state, phone = :phone, 
-                        ie = :ie, modified = :modified 
-                    WHERE id = :id');
-
-                // Bind dos parâmetros
-                $stmt->bindParam(':name', $jantar['name']);
-                $stmt->bindParam(':cpf_cnpj', $jantar['cpf_cnpj']);
-                $stmt->bindParam(':birthdate', $jantar['birthdate']);
-                $stmt->bindParam(':address', $jantar['address']);
-                $stmt->bindParam(':hood', $jantar['hood']);
-                $stmt->bindParam(':zip_code', $jantar['zip_code']);
-                $stmt->bindParam(':city', $jantar['city']);
-                $stmt->bindParam(':state', $jantar['state']);
-                $stmt->bindParam(':phone', $jantar['phone']);
-                $stmt->bindParam(':ie', $jantar['ie']);
-                $stmt->bindParam(':modified', $jantar['modified']);   
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
-                $stmt->execute();
-                header('Location: index.php');
-                exit;
-            } catch (PDOException $e) {
-                echo 'Erro ao atualizar cliente: ' . $e->getMessage();
-            }
-        } else {
-            global $jantar;
-            view($id);
-        }
-    } else {
-        header('Location: index.php');
-        exit;
-    }
-}
-
-/**
- * Exclui um cliente
+ * Exclui um orçamento
  */
 function delete($id = null)
 {
     if ($id !== null) {
         $db = open_database();
         try {
-            $stmt = $db->prepare('DELETE FROM customers WHERE id = :id');
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt = $db->prepare('DELETE FROM tab_orcamento_jantar WHERE id_jan = :id_jan');
+            $stmt->bindParam(':id_jan', $id, PDO::PARAM_INT);
             $stmt->execute();
             header('Location: index.php');
             exit;

@@ -70,7 +70,7 @@
                                     <!--<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-modal-marmitas" data-marmita="<?php echo $marmita['id_mar']; ?>">
                                         <i class="fa fa-trash-can"></i> Excluir
                                     </a>-->
-                                    <a href="delete.php?id_mar=<?php echo $marmita['id_mar']; ?>" class="btn btn-sm btn-light">
+                                    <a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#modal_marmitas" data-id="<?php echo $marmita['id_mar']; ?>">
                                         <i class="fa fa-trash-can"></i> Excluir
                                     </a>
                                 </td>
