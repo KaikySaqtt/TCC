@@ -35,7 +35,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" aria-expanded="false">
+                    <a class="nav-link" href="/TCC/sobre.php" aria-expanded="false">
                         <i class="fa-solid fa-person-dress"></i> Sobre Karol 
                     </a>
                 </li>
