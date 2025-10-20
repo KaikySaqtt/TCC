@@ -47,19 +47,12 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="<?php echo BASEURL; ?>admin/clientes/"><i class="fa-solid fa-user-tie"></i> Clientes registrados</a></li>
-                                <li><a class="dropdown-item" href="<?php echo BASEURL; ?>admin/jantares/"><i class="fa-solid fa-user-tie"></i> Orçamentos de eventos</a></li>
-                                <li><a class="dropdown-item" href="<?php echo BASEURL; ?>admin/marmitas/"><i class="fa-solid fa-user-tie"></i> Orçamento de marmitas</a></li>
+                                <li><a class="dropdown-item" href="<?php echo BASEURL; ?>admin/jantares/"><i class="fa-solid fa-utensils"></i> Orçamentos de eventos</a></li>
+                                <li><a class="dropdown-item" href="<?php echo BASEURL; ?>admin/marmitas/"><i class="bi bi-wallet-fill"></i> Orçamento de marmitas</a></li>
                             </ul>
                         </li>
                     <?php endif; ?>
                 <?php endif; ?>
-                <li>
-                    <ul class="navbar-nav kmpanela">
-                        <li class="nav-item">
-                            <img class="km" src="/TCC/inc/imgs/kmpanela.png">
-                        </li>
-                    </ul>
-                </li>
             </ul>
 
             <ul class="navbar-nav">

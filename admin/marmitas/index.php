@@ -1,56 +1,45 @@
 <?php if (!isset($_SESSION)) session_start(); ?>
 <?php
-    
     if (isset($_SESSION['user'])) {
-    if ($_SESSION['user']['id_user'] != 1) {
-        $_SESSION['message'] = "Você precisa ser administrador para acessar esse recurso!";
+        if ($_SESSION['user']['id_user'] != 1) {
+            $_SESSION['message'] = "Você precisa ser administrador para acessar esse recurso!";
+            $_SESSION['type'] = "danger";
+            header("Location: " .  "/TCC/clientes/index.php");
+        }
+    } else {
+        $_SESSION['message'] = "Você precisa estar logado e ser administrador para acessar esse recurso!";
         $_SESSION['type'] = "danger";
-        header("Location: " .  "/TCC/clientes/index.php");
+        header("Location: " . "/TCC/jantares/index.php");
     }
-    }else {
-    $_SESSION['message'] = "Você precisa estar logado e ser administrador para acessar esse recurso!";
-    $_SESSION['type'] = "danger";
-    header("Location: " . "/TCC/jantares/index.php");
-    }
+
     include('functions.php');
     index();
     include(HEADER_TEMPLATE);
 ?>
-            <!--
-            <header class="mt-5 ">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h2>Clientes</h2>
-                    </div>
-                    <div class="col-sm-6 text-right h2">
-                        <a class="btn btn-secondary" href="add.php"><i class="fa fa-user-plus"></i> Novo Cliente</a>
-                        <a class="btn btn-light" href="index.php"><i class="fa fa-refresh"></i> Atualizar</a>
-                    </div>
-                </div>
-            </header>
-            -->
 
-            <?php if (!empty($_SESSION['message'])) : ?>
-                <div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
-                    <?php echo $_SESSION['message']; ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php //clear_messages(); ?>
-            <?php endif; ?>
+<div class="container container-wide agrandir mt-5 pb-5">
+    <?php if (!empty($_SESSION['message'])) : ?>
+        <div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible fade show mt-3" role="alert">
+            <?php echo $_SESSION['message']; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
+    <?php endif; ?>
 
-            <hr>
-            <h1 class="mt-5">Orçamentos de marmitas cadastrados</h1>   
-            <table class="table table-hover mt-5">
-                <thead>
+    <div class="card shadow-sm border-0 mt-5 p-4">
+        <h2 class="page-title mb-4">Orçamentos de marmitas cadastrados</h2>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light" style="color: #233f69;">
                     <tr>
                         <th>ID</th>
-                        <th width="30%">Quantidade de marmitas</th>
+                        <th>Quantidade de marmitas</th>
                         <th>CPF/CNPJ do cliente</th>
                         <th>Fit ou normal</th>
                         <th>Quer dieta ou não</th>
-                        <th>Dia que foi feito o orçamento</th>
+                        <th>Dia do orçamento</th>
                         <th>Detalhes</th>
-
+                        <th class="text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,26 +53,31 @@
                                 <td><?php echo $marmita['dieta_ou_nao']; ?></td>
                                 <td><?php echo formatadata($marmita['data_do_orcamento_mar'], "d/m/y"); ?></td>
                                 <td><?php echo $marmita['detalhes_mar']; ?></td>
-                                <!--<td>< echo formataphone($usuario['telefone']); ?></td>-->
-                                <td class="actions text-right">
-                                    <a href="edit.php?id_mar=<?php echo $marmita['id_mar']; ?>" class="btn btn-sm btn-secondary"><i class="fa fa-file-pen"></i> Editar</a>
-                                    <!--<a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-modal-marmitas" data-marmita="<?php echo $marmita['id_mar']; ?>">
-                                        <i class="fa fa-trash-can"></i> Excluir
-                                    </a>-->
-                                    <a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#modal_marmitas" data-id="<?php echo $marmita['id_mar']; ?>">
-                                        <i class="fa fa-trash-can"></i> Excluir
+                                <td class="text-center">
+                                    <a href="edit.php?id_mar=<?php echo $marmita['id_mar']; ?>" 
+                                       class="btn-crud btn-edit mb-1">
+                                       <i class="fa fa-file-pen"></i> Editar
+                                    </a>
+                                    <a href="#" 
+                                       class="btn-crud btn-delete"
+                                       data-bs-toggle="modal" 
+                                       data-bs-target="#modal_marmitas" 
+                                       data-id="<?php echo $marmita['id_mar']; ?>">
+                                       <i class="fa fa-trash-can"></i> Excluir
                                     </a>
                                 </td>
                             </tr>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
                     <?php else : ?>
                         <tr>
-                            <td colspan="6">Nenhum registro encontrado.</td>
+                            <td colspan="8" class="text-center text-muted py-4">Nenhum registro encontrado.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
             </table>
-
+        </div>
+    </div>
+</div>
 
 <?php include('modal.php'); ?>
 <?php include(FOOTER_TEMPLATE); ?>

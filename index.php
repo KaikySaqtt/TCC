@@ -25,7 +25,7 @@ clear_messages(); ?>
                 <br class="d-none d-lg-inline">com a personal chef Karol Marques
                 <br class="d-none d-lg-inline">tudo no conforto da sua própria casa!
             </h4>
-            <a href="/TCC/admin/index_clientes.php" class="btn btn-km btn-lg mt-3">Começar</a>
+            <a href="/TCC/inc/login.php" class="btn btn-km btn-lg mt-3">Começar</a>
         </div>
 
         <div class="col-lg-6 direita">

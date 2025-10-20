@@ -35,7 +35,7 @@ CREATE TABLE tab_orcamento_jantar (
 INSERT INTO tab_orcamento_jantar
 (endereco, quantidade_pessoas, data_do_evento, jantar_ou_almoco, drinks, sobremesas, detalhes_jan, cpf_cnpj_usuario, data_do_orcamento_jan)
 VALUES 
-('rua monteiro lobato 21', 45, '2024-09-19 00:00:00', 'almoco', 1, 0, 'eu quero um teste...', '12121212121', '2024-08-19 00:00:00');
+('rua monteiro lobato 21', 45, '2024-09-19 00:00:00', 'almoço', 1, 0, 'eu quero um teste...', '12121212121', '2024-08-19 00:00:00');
 
 -- TABELA DE ORÇAMENTO MARMITA
 CREATE TABLE tab_orcamento_marmita (
