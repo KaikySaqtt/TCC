@@ -1,22 +1,23 @@
-<?php if (!isset($_SESSION)) session_start(); ?>
+<?php if (!isset($_SESSION))
+    session_start(); ?>
 <?php
-    
-    if (isset($_SESSION['user'])) {
+
+if (isset($_SESSION['user'])) {
     if ($_SESSION['user']['id_user'] != 1) {
         $_SESSION['message'] = "Você precisa ser administrador para acessar esse recurso!";
         $_SESSION['type'] = "danger";
-        header("Location: " .  "/TCC/clientes/index.php");
+        header("Location: " . "/TCC/clientes/index.php");
     }
-    }else {
+} else {
     $_SESSION['message'] = "Você precisa estar logado e ser administrador para acessar esse recurso!";
     $_SESSION['type'] = "danger";
     header("Location: " . "/TCC/jantares/index.php");
-    }
-    include('functions.php');
-    index();
-    include(HEADER_TEMPLATE);
+}
+include('functions.php');
+index();
+include(HEADER_TEMPLATE);
 ?>
-            <!--
+<!--
             <header class="mt-5 ">
                 <div class="row">
                     <div class="col-sm-6">
@@ -30,50 +31,61 @@
             </header>
             -->
 
-            <?php if (!empty($_SESSION['message'])) : ?>
-                <div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
-                    <?php echo $_SESSION['message']; ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php //clear_messages(); ?>
-            <?php endif; ?>
-
-            <hr>
-            <h1 class="mt-5">Clientes cadastrados</h1>   
-            <table class="table table-hover mt-5">
-                <thead>
+<?php if (!empty($_SESSION['message'])): ?>
+    <div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible" role="alert">
+        <?php echo $_SESSION['message']; ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php //clear_messages(); ?>
+<?php endif; ?>
+<div class="container container-wide agrandir mt-5 pb-5">
+    <div class="card shadow-sm border-0 mt-5 p-4">
+        <h2 class="page-title mb-4">Clientes cadastrados</h2>
+        <div class="table-reponsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light" style="color: #233f69;"> 
                     <tr>
                         <th>ID</th>
                         <th width="30%">Nome</th>
                         <th>CPF/CNPJ</th>
                         <th>Telefone</th>
-                        <th>Opções</th>
+                        <th class="ms-1">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if ($usuarios) : ?>
-                        <?php foreach ($usuarios as $usuario) : ?>
+                    <?php if ($usuarios): ?>
+                        <?php foreach ($usuarios as $usuario): ?>
                             <tr>
                                 <td><?php echo $usuario['id_user']; ?></td>
                                 <td><?php echo $usuario['name']; ?></td>
                                 <td><?php echo formatacpfcnpj($usuario['cpf_cnpj']); ?></td>
                                 <td><?php echo formataphone($usuario['telefone']); ?></td>
-                                <td class="actions text-right">
-                                    <a href="view.php?id=<?php echo $usuario['id_user']; ?>" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visualizar</a>
-                                    <a href="edit.php?id=<?php echo $usuario['id_user']; ?>" class="btn btn-sm btn-secondary"><i class="fa fa-file-pen"></i> Editar</a>
-                                    <a href="#" class="btn btn-sm btn-light" data-bs-toggle="modal" data-bs-target="#delete-modal" data-customer="<?php echo $usuario['id_user']; ?>">
-                                        <i class="fa fa-trash-can"></i> Excluir
+                                   <td class="text-center">
+                                    <a href="edit.php?id_user=<?php echo $marmita['id_user']; ?>" 
+                                       class="btn-crud btn-edit mb-1">
+                                       <i class="fa fa-file-pen"></i> Editar
+                                    </a>
+                                    <a href="#" 
+                                       class="btn-crud btn-delete"
+                                       data-bs-toggle="modal" 
+                                       data-bs-target="#modal_clientes" 
+                                       data-id="<?php echo $usuario['id_user']; ?>">
+                                       <i class="fa fa-trash-can"></i> Excluir
                                     </a>
                                 </td>
                             </tr>
-                    <?php endforeach; ?>
-                    <?php else : ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
                         <tr>
                             <td colspan="6">Nenhum registro encontrado.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
 
 
 <?php include('modal.php'); ?>

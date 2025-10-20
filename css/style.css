@@ -55,6 +55,7 @@ body { margin-bottom: 30px; }
   height: 100vh;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
   z-index: 1;
   position: relative;
 }
@@ -107,6 +108,84 @@ body { margin-bottom: 30px; }
     border-color: #233f69;
 }
 
+/* ===== Modal Estilizado ===== */
+.modal-km {
+  font-family: 'agrandir', sans-serif;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+/* Cabeçalho */
+.modal-km .modal-header {
+  background-color: #233f69;
+  color: #fff;
+  border-bottom: none;
+  justify-content: center;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  position: relative;
+}
+
+.modal-km .modal-title {
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin: 0 auto;
+}
+
+/* Botão de fechar */
+.modal-km .btn-close {
+  filter: invert(1);
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+/* Corpo */
+.modal-km .modal-body {
+  color: #677483;
+  text-align: center;
+  font-size: 1rem;
+  padding: 1.8rem 2rem;
+}
+
+/* Rodapé */
+.modal-km .modal-footer {
+  border-top: none;
+  justify-content: center;
+  background-color: #f8f8f8;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+/* Botão */
+.modal-km .btn-km {
+  font-size: 1rem;
+  padding: 10px 24px;
+  border-radius: 25px;
+  background-color: #233f69;
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.modal-km .btn-km:hover {
+  background-color: #4c73b3;
+}
+
+/* Fundo do modal */
+.modal-backdrop.show {
+  background-color: rgba(35, 63, 105, 0.45);
+}
+
+/* Animação */
+.modal.fade .modal-dialog {
+  transition: transform 0.25s ease-out;
+  transform: translateY(-20px);
+}
+.modal.fade.show .modal-dialog {
+  transform: translateY(0);
+}
 
 /* ====== Responsividade ====== */
 

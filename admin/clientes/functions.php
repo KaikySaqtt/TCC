@@ -138,8 +138,8 @@ function delete($id = null)
     if ($id !== null) {
         $db = open_database();
         try {
-            $stmt = $db->prepare('DELETE FROM customers WHERE id = :id');
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt = $db->prepare('DELETE FROM tab_usuarios WHERE id_user = :id_user');
+            $stmt->bindParam(':id_user', $id, PDO::PARAM_INT);
             $stmt->execute();
             header('Location: index.php');
             exit;

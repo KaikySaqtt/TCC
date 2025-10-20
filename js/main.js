@@ -20,6 +20,16 @@ $('#modal_marmitas').on('show.bs.modal', function (event) {
   modal.find('#confirm').attr('href', 'delete.php?id_mar=' + id);
 });
 
+$('#modal_clientes').on('show.bs.modal', function (event) {
+
+  var button = $(event.relatedTarget);
+  var id = button.data('id');
+
+  var modal = $(this);
+  modal.find('.modal-title').text('Excluir o cliente com o id = ' + id );
+  modal.find('.modal-body').text('Deseja realmente excluir o cliente com o id = ' + id + '?');
+  modal.find('#confirm').attr('href', 'delete.php?id_user=' + id);
+});
 function sendwhatsappjantar() {
   // Substitua este número pelo número de telefone de destino
   var phonenumber = "+5515988185623";

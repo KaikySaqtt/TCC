@@ -12,7 +12,7 @@ include(HEADER_TEMPLATE);
                     <h2 class="fw-semibold mb-3">
                         <i class="fa-solid fa-right-to-bracket me-2"></i> Login
                     </h2>
-                    <form action="valida_login.php" method="post">
+                    <form action="valida.php" method="post">
                         <div class="mb-3 text-start">
                             <label for="cpf_cnpj" class="form-label">CPF/CNPJ</label>
                             <input type="text" class="form-control" name="cpf_cnpj" id="cpf_cnpj" required>

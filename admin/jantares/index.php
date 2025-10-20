@@ -52,13 +52,18 @@ include(HEADER_TEMPLATE);
                                 <td><?php echo formatadata($jantar['data_do_evento'], "d/m/Y"); ?></td>
                                 <td><?php echo formatadata($jantar['data_do_orcamento_jan'], "d/m/Y"); ?></td>
                                 <td class="text-start"><?php echo nl2br(htmlspecialchars($jantar['detalhes_jan'])); ?></td>
-                                <td class="text-center">
-                                    <a href="edit.php?id_jan=<?php echo $jantar['id_jan']; ?>" class="btn btn-km btn-sm me-1">
-                                        <i class="fa fa-file-pen"></i> Editar
+                                 <td class="text-center">
+                                    <a href="edit.php?id_jan=<?php echo $marmita['id_jan']; ?>" 
+                                       class="btn-crud btn-edit mb-1">
+                                       <i class="fa fa-file-pen"></i> Editar
                                     </a>
-                                    <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#modal_jantares" data-id="<?php echo $jantar['id_jan']; ?>">
-                                        <i class="fa fa-trash-can"></i> Excluir
-                                    </button>
+                                    <a href="#" 
+                                       class="btn-crud btn-delete"
+                                       data-bs-toggle="modal" 
+                                       data-bs-target="#modal_jantares" 
+                                       data-id="<?php echo $jantar['id_jan']; ?>">
+                                       <i class="fa fa-trash-can"></i> Excluir
+                                    </a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

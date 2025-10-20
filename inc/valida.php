@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Verificar se login e senha foram enviados
-if (empty($_POST['login']) || empty($_POST['senha'])) {
+if (empty($_POST['cpf_cnpj']) || empty($_POST['password'])) {
     header("Location: " . BASEURL . "index.php");
     exit;
 }
@@ -22,8 +22,8 @@ try {
     $bd = open_database();
 
     // Captura e prepara os dados
-    $usuario = $_POST['login'];
-    $senhaDigitada = $_POST['senha'];
+    $usuario = $_POST['cpf_cnpj'];
+    $senhaDigitada = $_POST['password'];
 
     // Buscar usuário pelo CPF/CNPJ
     $sql = "SELECT id_user, name, cpf_cnpj, password 

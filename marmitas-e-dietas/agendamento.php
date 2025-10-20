@@ -1,5 +1,38 @@
 <?php
 if (!isset($_SESSION)) session_start();
+if (!isset($_SESSION['user'])) {
+    echo '
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const modalHtml = `
+                <div class="modal fade" id="login-required-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loginRequiredLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content modal-km">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="loginRequiredLabel">
+                          <i class="bi bi-lock-fill me-2"></i> Acesso Negado
+                        </h1>
+                      </div>
+                      <div class="modal-body">
+                        Você precisa estar logado para acessar esse recurso.
+                      </div>
+                      <div class="modal-footer">
+                        <a href="../inc/login.php" class="btn btn-km">Ir para Login</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            `; // <-- aqui fechamos corretamente o template string
+
+            // Insere o modal no final do body
+            document.body.insertAdjacentHTML("beforeend", modalHtml);
+
+            // Cria e mostra o modal com Bootstrap
+            const modal = new bootstrap.Modal(document.getElementById("login-required-modal"));
+            modal.show();
+        });
+    </script>';
+}
 include('functions.php');
 add();
 include(HEADER_TEMPLATE);

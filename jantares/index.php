@@ -44,8 +44,8 @@ $db = open_database();
                 </div>
             </div>
             <div class="col">
-                <div class="card shadow-sm mb-3" style="width:95%; height: auto">
-                    <img src="../kmimagens/marmita2.png" class="card-img-top" alt="Marmitas e finger food">
+                <div class="card shadow-sm mb-3 pb-1" style="width:95%; height: auto">
+                    <img src="../kmimagens/sangria2.png" class="card-img-top" alt="Marmitas e finger food">
                     <div class="card-body text-center">
                         <h5 class="card-title pb-1">Drinks c/s <br>álcool</h5>
                         <a href="../TCC/marmitas-e-dietas/" class="btn btn-km btn-jantares">ir para orçamento</a>
