@@ -54,19 +54,31 @@ function edit($id_jan, $postData)
                 cpf_cnpj_usuario = :cpf_cnpj_usuario,   
                 jantar_ou_almoco = :jantar_ou_almoco, 
                 drinks = :drinks, 
+                sobremesas = :sobremesas,
                 detalhes_jan = :detalhes_jan
             WHERE id_jan = :id_jan');
 
         $quantidade_pessoas = $postData['quantidade_pessoas'] ?? null;
         $cpf_cnpj_usuario   = $postData['cpf_cnpj_usuario'] ?? null;
         $jantar_ou_almoco   = $postData['jantar_ou_almoco'] ?? null;
-        $drinks             = $postData['drinks'] ?? null;
+        $sobremesas         =  strtoupper($postData['sobremesas'] ?? null);
+        $drinks             =  strtoupper($postData['drinks'] ?? null);
         $detalhes_jan       = $postData['detalhes_jan'] ?? null;
-
+        if ($drinks === 'SIM') {
+            $drinks = 0;
+        } else {
+            $drinks = 1;
+        }
+        if ($sobremesas === 'SIM') {
+            $sobremesas = 0;
+        } else {
+            $sobremesas = 1;
+        }
         $stmt->bindParam(':quantidade_pessoas', $quantidade_pessoas, PDO::PARAM_INT);
         $stmt->bindParam(':cpf_cnpj_usuario', $cpf_cnpj_usuario, PDO::PARAM_STR);
         $stmt->bindParam(':jantar_ou_almoco', $jantar_ou_almoco, PDO::PARAM_STR);
-        $stmt->bindParam(':drinks', $drinks, PDO::PARAM_STR);
+        $stmt->bindParam(':drinks', $drinks, PDO::PARAM_BOOL);
+        $stmt->bindParam(':sobremesas', $sobremesas, PDO::PARAM_BOOL);
         $stmt->bindParam(':detalhes_jan', $detalhes_jan, PDO::PARAM_STR);
         $stmt->bindParam(':id_jan', $id_jan, PDO::PARAM_INT);
 

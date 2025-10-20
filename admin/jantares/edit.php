@@ -66,58 +66,68 @@ include(HEADER_TEMPLATE);
 
 <h2>Atualizar orçamento</h2>
 
-<form action="edit.php?id_jan=<?php echo $jantar['id_jan']; ?>" method="post" enctype="multipart/form-data">
+<form class="form-edit-jan" action="edit.php?id_jan=<?php echo $jantar['id_jan']; ?>" method="post" enctype="multipart/form-data">
     <hr>
 
-    <div class="row mb-5 mt-5">
-        <div class="form-group col-md-2">
+    <div class="form-edit-row mb-5 mt-5">
+        <div class="form-edit-group col-md-2">
             <label><h6>ID do Pedido</h6></label>
-            <input type="text" class="form-control" value="<?php echo $jantar['id_jan']; ?>" disabled>
+            <input type="text" class="form-edit-control" value="<?php echo $jantar['id_jan']; ?>" disabled>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-edit-group col-md-2">
             <label><h6>Data de emissão do pedido</h6></label>
-            <input type="date" class="form-control" value="<?php echo date('Y-m-d', strtotime($jantar['data_do_orcamento_jan'])); ?>" disabled>
+            <input type="date" class="form-edit-control" value="<?php echo date('Y-m-d', strtotime($jantar['data_do_orcamento_jan'])); ?>" disabled>
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-edit-group col-md-4">
             <label><h6>Endereço</h6></label>
-            <input type="text" class="form-control" name="jantar[endereco]" value="<?php echo $jantar['endereco']; ?>" required>
+            <input type="text" class="form-edit-control" name="jantar[endereco]" value="<?php echo $jantar['endereco']; ?>" required>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-edit-group col-md-2">
             <label><h6>Quantidade de pessoas</h6></label>
-            <input type="text" class="form-control" name="jantar[quantidade_pessoas]" value="<?php echo $jantar['quantidade_pessoas']; ?>" required>
+            <input type="text" class="form-edit-control" name="jantar[quantidade_pessoas]" value="<?php echo $jantar['quantidade_pessoas']; ?>" required>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-edit-group col-md-2">
             <label><h6>CPF ou CNPJ do cliente</h6></label>
-            <input type="text" class="form-control" name="jantar[cpf_cnpj_usuario]" value="<?php echo $jantar['cpf_cnpj_usuario']; ?>" required>
+            <input type="text" class="form-edit-control" name="jantar[cpf_cnpj_usuario]" value="<?php echo $jantar['cpf_cnpj_usuario']; ?>" required>
         </div>
     </div>
 
-    <div class="row mb-5 mt-5">
-        <div class="form-group col-md-2">
+    <div class="form-edit-row mb-5 mt-5">
+        <div class="form-edit-group col-md-2">
             <label><h6>Jantar ou almoço</h6></label>
-            <input type="text" class="form-control" name="jantar[jantar_ou_almoco]" value="<?php echo $jantar['jantar_ou_almoco']; ?>" required>
+            <input type="text" class="form-edit-control" name="jantar[jantar_ou_almoco]" value="<?php echo $jantar['jantar_ou_almoco']; ?>" required>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-edit-group col-md-2">
             <label><h6>Drinks</h6></label>
-            <input type="text" class="form-control" name="jantar[drinks]" value="<?php echo $jantar['drinks']; ?>" required>
+            <input type="text" class="form-edit-control" name="jantar[drinks]" value="<?php if($jantar['drinks'] == 0) { echo 'Sim'; } else { echo 'Não'; } ?>" required>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-edit-group col-md-2">
+            <label><h6>Sobremesas</h6></label>
+            <input type="text" class="form-edit-control" name="jantar[sobremesas]" value="<?php if($jantar['sobremesas'] == 0) { echo 'Sim'; } else { echo 'Não'; } ?>" required>
+        </div>
+
+        <div class="form-edit-group col-md-3">
             <label><h6>Detalhes do orçamento</h6></label>
-            <input type="text" class="form-control" name="jantar[detalhes_jan]" value="<?php echo $jantar['detalhes_jan']; ?>" required>
+            <input type="text" class="form-edit-control" name="jantar[detalhes_jan]" value="<?php echo $jantar['detalhes_jan']; ?>" required>
         </div>
     </div>
 
     <div class="col-md-12 mt-2">
-        <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-sd-card"></i> Salvar</button>
-        <a href="index.php" class="btn btn-light"><i class="fa-solid fa-arrow-left"></i> Cancelar</a>
+        <button type="submit" class="btn-crud btn-edit mb-1">
+            <i class="fa-solid fa-sd-card"></i> Salvar
+        </button>
+        <a href="index.php" class="btn-crud btn-delete">
+            <i class="fa-solid fa-arrow-left"></i> Cancelar
+        </a>
     </div>
 </form>
+
 
 
 <?php include(FOOTER_TEMPLATE); ?>

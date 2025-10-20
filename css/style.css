@@ -69,6 +69,7 @@ body { margin-bottom: 30px; }
   margin-top: -100px; /* sobrepõe hero */
   background-color: #e7e7e7;
 }
+
 .btn-jantares{width: 100%;}
 /* ====== Agendamento jantares ====== */
 /* ====== Estilos Formulário de Orçamento ====== */
@@ -272,6 +273,84 @@ body { margin-bottom: 30px; }
     color: #233f69;
     font-weight: 600;
 }
+/* ====== FORMULÁRIO DE EDIÇÃO DE JANTARES ====== */
+
+.form-edit-jan {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'agrandir', sans-serif;
+    margin-top: 40px;
+}
+
+.form-edit-jan h6 {
+    font-weight: 600;
+    color: #233f69;
+    margin-bottom: 6px;
+}
+
+.form-edit-jan .form-edit-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.form-edit-jan .form-edit-control {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 14px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.form-edit-jan .form-edit-control:focus {
+    border-color: #233f69;
+    box-shadow: 0 0 0 0.2rem rgba(35, 63, 105, 0.25);
+    outline: none;
+}
+
+.form-edit-jan .form-edit-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.form-edit-jan hr {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+.form-edit-jan .btn-crud {
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.form-edit-jan .btn-edit {
+    background-color: #233f69;
+    color: #fff;
+}
+
+.form-edit-jan .btn-edit:hover {
+    background-color: #4c73b3;
+}
+
+.form-edit-jan .btn-delete {
+    background-color: #999;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.form-edit-jan .btn-delete:hover {
+    background-color: #888;
+}
 
 /* Desktop (≥992px) – dá “respiro” para o hero em telas grandes */
 @media (min-width: 992px) {
@@ -289,6 +368,9 @@ body { margin-bottom: 30px; }
   .services { margin-top: -20px; /* sobe menos no mobile */ }
   .kmpanela { display: none; }
   .col-responsive{ display: none; }
+  .form-edit-jan .form-edit-row {
+        flex-direction: column;
+    }
 }
 @media (max-width: 576px) {
   .int{margin: 0px;}

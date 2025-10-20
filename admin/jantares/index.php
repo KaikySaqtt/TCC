@@ -53,7 +53,7 @@ include(HEADER_TEMPLATE);
                                 <td><?php echo formatadata($jantar['data_do_orcamento_jan'], "d/m/Y"); ?></td>
                                 <td class="text-start"><?php echo nl2br(htmlspecialchars($jantar['detalhes_jan'])); ?></td>
                                  <td class="text-center">
-                                    <a href="edit.php?id_jan=<?php echo $marmita['id_jan']; ?>" 
+                                    <a href="edit.php?id_jan=<?php echo $jantar['id_jan']; ?>" 
                                        class="btn-crud btn-edit mb-1">
                                        <i class="fa fa-file-pen"></i> Editar
                                     </a>
