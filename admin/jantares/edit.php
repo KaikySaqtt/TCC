@@ -31,6 +31,7 @@ if (isset($_POST['jantar'])) {
         cpf_cnpj_usuario = :cpf_cnpj_usuario,   
         jantar_ou_almoco = :jantar_ou_almoco, 
         drinks = :drinks, 
+        sobremesas = :sobremesas,
         detalhes_jan = :detalhes_jan
     WHERE id_jan = :id_jan');
 
@@ -40,14 +41,16 @@ if (isset($_POST['jantar'])) {
         $cpf_cnpj_usuario   = $jantarPost['cpf_cnpj_usuario'] ?? null;
         $jantar_ou_almoco   = $jantarPost['jantar_ou_almoco'] ?? null;
         $drinks             = $jantarPost['drinks'] ?? null;
+        $sobremesas         = $jantarPost['sobremesas'] ?? null;
         $detalhes_jan       = $jantarPost['detalhes_jan'] ?? null;
 
         // Bind dos parâmetros
         $stmt->bindParam(':endereco', $endereco, PDO::PARAM_STR);
         $stmt->bindParam(':quantidade_pessoas', $quantidade_pessoas, PDO::PARAM_INT);
-        $stmt->bindParam(':cpf_cnpj_usuario', $cpf_cnpj_usuario, PDO::PARAM_STR);
+        $stmt->bindParam(':cpf_cnpj_usuario', $cpf_cnpj_usuario, PDO::PARAM_INT);
         $stmt->bindParam(':jantar_ou_almoco', $jantar_ou_almoco, PDO::PARAM_STR);
-        $stmt->bindParam(':drinks', $drinks, PDO::PARAM_STR);
+        $stmt->bindParam(':drinks', $drinks, PDO::PARAM_BOOL);
+        $stmt->bindParam(':sobremesas', $sobremesas, PDO::PARAM_BOOL);
         $stmt->bindParam(':detalhes_jan', $detalhes_jan, PDO::PARAM_STR);
         $stmt->bindParam(':id_jan', $id_jan, PDO::PARAM_INT);
 

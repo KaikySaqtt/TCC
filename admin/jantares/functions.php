@@ -61,8 +61,8 @@ function edit($id_jan, $postData)
         $quantidade_pessoas = $postData['quantidade_pessoas'] ?? null;
         $cpf_cnpj_usuario   = $postData['cpf_cnpj_usuario'] ?? null;
         $jantar_ou_almoco   = $postData['jantar_ou_almoco'] ?? null;
-        $sobremesas         =  $postData['sobremesas'] ?? null;
-        $drinks             =  $postData['drinks'] ?? null;
+        $drinks             = $postData['drinks'] ?? null;
+        $sobremesas         = $postData['sobremesas'] ?? null;
         $detalhes_jan       = $postData['detalhes_jan'] ?? null;
         $drinks_banco = $drinks == 1;
         $sobremesas_banco = $sobremesas == 1;

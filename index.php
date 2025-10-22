@@ -16,7 +16,7 @@ clear_messages(); ?>
 <?php endif; ?>
 
 <!-- INT / HERO -->
-<section class="int container py-5">
+<section class="int container py-5 mt-3">
     <div class="row align-items-center g-4">
         <div class="col-lg-6 text-center text-lg-start esquerda">
             <h1 class="agrandir fw-bold">Um restaurante em sua residência</h1>
@@ -68,7 +68,7 @@ clear_messages(); ?>
                             </div>
                         </div>
                     </div>
-                    <div class="col col-responsive">
+                    <div class="col ">
                         <div class="card h-100 card-direita">
                             <div class="ratio ratio-1x1">
                                 <img src="kmimagens/marmitas4.png" class="w-100 h-100" alt="Imagem 6">

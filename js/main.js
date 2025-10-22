@@ -1,3 +1,12 @@
+function formatadata(data) {
+  if (!data) return '';
+  const partes = data.split('T')[0].split('-');
+  if (partes.length !== 3) return data; // se não for uma data padrão, retorna como veio
+  const [ano, mes, dia] = partes;
+  return `${dia}-${mes}-${ano}`;
+}
+
+
 $('#modal_jantares').on('show.bs.modal', function (event) {
 
   var button = $(event.relatedTarget);
@@ -32,7 +41,7 @@ $('#modal_clientes').on('show.bs.modal', function (event) {
 });
 function sendwhatsappjantar() {
   // Substitua este número pelo número de telefone de destino
-  var phonenumber = "+5515988185623";
+  var phonenumber = "+5515998114782";
 
   var quantiadepessoas = document.querySelector('#quantida_pessoas').value;
   var endereco = document.querySelector('#endereco').value;
@@ -41,9 +50,10 @@ function sendwhatsappjantar() {
   var sobremesa = document.querySelector('#incluir_sobremesa').checked;
   var sobremesasimoounao = '';
   var drinkssimoounao = '';
-  var data = document.querySelector('#data_do_evento').value;
+  var datasemformatar = document.querySelector('#data_do_evento').value;
   var drinks = document.querySelector('#incluir_drinks').checked;
   var detalhes = document.querySelector('#detalhes_pedido').value;
+  var dataformatada = formatadata(datasemformatar)
 
   if (almoco == true){
     jantaroualmoco = "almoço"
@@ -64,7 +74,7 @@ function sendwhatsappjantar() {
   var url = "https://wa.me/" + phonenumber + "?text="
     + "*Quantidade de pessoas :* " + quantiadepessoas + "%0a"
     + "*Endereco :* " + endereco + "%0a"
-    + "*Data : *" + data + "%0a"
+    + "*Data*  : " + dataformatada + "%0a"
     + "*Sobremesa :* " + sobremesasimoounao + "%0a"
     + "*Drinks :* " + drinkssimoounao + "%0a"
     + "*Jantar ou almoço :* " + jantaroualmoco + "%0a"
@@ -75,7 +85,7 @@ function sendwhatsappjantar() {
 }
 function sendwhatsappmarmita() {
   // Substitua este número pelo número de telefone de destino
-  var phonenumber = "+5515988185623";
+  var phonenumber = "+5515998114782 ";
 
   var quantidade_Marmitas = document.querySelector('#quantidadeMarmitas').value;
   var fit = document.querySelector('#fit').checked;

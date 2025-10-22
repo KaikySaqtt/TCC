@@ -23,7 +23,7 @@ include(HEADER_TEMPLATE);
         <h2 class="page-title mb-4">Orçamentos de jantares e almoços privativos cadastrados</h2>
         <div class="table-responsive">
             <table class="table table-hover align-middle">
-                <thead class="table-light text-center">
+                <thead class="table-light text-center" style="color: #233f69;">
                     <tr>
                         <th>ID</th>
                         <th width="30%">Endereço</th>

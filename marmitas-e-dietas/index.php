@@ -20,32 +20,33 @@ $db = open_database();
         <a href="../marmitas-e-dietas/agendamento.php" class="btn btn-km btn-lg mt-3">Pedir orçamento</a>
     </div>
 </div>
-<div class="mais-info-jantares rounded-3 container">
-    <section>
-        <h2 class="agrandir text-center pt-4">Nunca mais se preocupe em cozinhar ou sair da dieta!</h2>
-        <h5 class="text-center">Oferecemos marmitas e produção de dietas personalizadas!</h5>
-        <div class="row row-cols-1 row-cols-sm-2 justify-content-center g-3 mt-3 pb-3">
-    <div class="col d-flex justify-content-center">
-        <div class="card shadow-sm" style="width: 22rem;">
-            <img src="../kmimagens/km2.png" class="card-img-top" alt="Jantares privativos">
-            <div class="card-body text-center">
-                <h5 class="card-title">Planejamento de dieta para a sua necessidade</h5>
-                <a href="agendamento.php" class="btn btn-km">Pedir orçamentos</a>
+<section>
+    <div class="mais-info-jantares rounded-3 container">
+    
+            <h2 class="agrandir text-center pt-4">Nunca mais se preocupe em cozinhar ou sair da dieta!</h2>
+            <h5 class="text-center">Oferecemos marmitas e produção de dietas personalizadas!</h5>
+            <div class="row row-cols-1 row-cols-sm-2 justify-content-center g-3 mt-3 pb-3">
+            <div class="col d-flex justify-content-center">
+                <div class="card shadow-sm" style="width: 22rem;">
+                    <img src="../kmimagens/km2.png" class="card-img-top" alt="Jantares privativos">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Planejamento de dieta para a sua necessidade</h5>
+                        <a href="agendamento.php" class="btn btn-km">Pedir orçamentos</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col d-flex justify-content-center">
-        <div class="card shadow-sm" style="width: 22rem;">
-            <img src="../kmimagens/marmitas42.png" class="card-img-top" alt="Marmitas">
-            <div class="card-body text-center">
-                <h5 class="card-title">Marmitas fitness ou comuns, quem escolhe é você</h5>
-                <a href="agendamento.php" class="btn btn-km">Pedir orçamentos</a>
+            <div class="col d-flex justify-content-center">
+                <div class="card shadow-sm" style="width: 22rem;">
+                    <img src="../kmimagens/marmitas42.png" class="card-img-top" alt="Marmitas">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Marmitas fitness ou comuns, quem escolhe é você</h5>
+                        <a href="agendamento.php" class="btn btn-km">Pedir orçamentos</a>
+                    </div>
+                </div>
             </div>
-        </div>
     </div>
-</div>
-
-    </section>
+</section>
+    
 </div>
 
 <?php include(FOOTER_TEMPLATE); ?>

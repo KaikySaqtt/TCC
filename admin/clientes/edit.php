@@ -18,7 +18,7 @@ if (!isset($_GET['id_user'])) {
 $id_user = $_GET['id_user'];
 
 // Busca os dados do usuário
-$usuario = view($id_user);
+view($id_user);
 
 // Processa o formulário
 if (isset($_POST['usuario'])) {
@@ -81,21 +81,22 @@ include(HEADER_TEMPLATE);
             <label><h6>Nome do usuario</h6></label>
             <input type="text" class="form-edit-control" name="usuario[name]" value="<?php echo $usuario['name']; ?>" required>
         </div>
-        <div class="form-edit-group col-md-4">
-            <label><h6>Senha (deixe em branco para manter a senha atual)</h6></label>
-            <input type="password" class="form-edit-control" name="usuario[password]" value="">
-        </div>
-
-        <div class="form-edit-group col-md-2">
-            <label><h6>ID do usuario</h6></label>
-            <input type="text" class="form-edit-control" value="<?php echo $usuario['id_user']; ?>" disabled>
-        </div>
     </div>
 
     <div class="form-edit-row mb-5 mt-5">
         <div class="form-edit-group col-md-3">
             <label><h6>Telefone</h6></label>
             <input type="number" class="form-edit-control" name="usuario[telefone]" value="<?php echo $usuario['telefone']; ?>" required>
+        </div>
+        <!--
+        <div class="form-edit-group col-md-3">
+            <label><h6>CPF ou CNPJ do cliente</h6></label>
+            <input type="number" class="form-edit-control" name="usuario[cpf_cnpj]" value="<php echo $usuario['cpf_cnpj']; ?>" required>
+        </div>
+        -->
+        <div class="form-edit-group col-md-3">
+            <label><h6>Senha (em branco para manter a senha atual)</h6></label>
+            <input type="password" class="form-edit-control" name="usuario[password]" value="">
         </div>
     </div>
 
