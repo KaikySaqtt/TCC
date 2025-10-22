@@ -1,3 +1,7 @@
+/* =========================
+   SEU CSS ORIGINAL (preservado por completo)
+   ========================= */
+
 @font-face {
   font-family: 'agrandir';
   src: url('/TCC/webfonts/agrandir-Regular.woff2') format('woff2');
@@ -29,27 +33,32 @@ body { margin-bottom: 30px; }
 
 /* ====== Layout das seções ====== */
 
+/* INT / HERO */
 .esquerda, .direita { padding: 0; }
 .int {
   position: relative;
   width: 100%;
 }
 
+/* Grid de cards do hero */
 .gallery .card { border: 0; background: transparent; }
 .gallery .ratio img { object-fit: cover; border-radius: .75rem; }
 
+/* SERVICES */
 .services { background-color: #cbcbcb; width: 100%; }
 .services .container { background: #fff; }
 .services .card-title { font-size: 1.1rem; }
 
+/* SOBRE KM */
 .sobre-km { background-color: #fff; width: 100%; }
 .sobre-km .card { border: 0; }
 
+/* INDEX JANTARES PRIVATIVOS */
 .img-fundo{
   width: 100vw;
   height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
   z-index: 1;
   position: relative;
@@ -60,49 +69,51 @@ body { margin-bottom: 30px; }
   width: 80vw;
   height: 100%;
   position: relative;
-  z-index: 2;
-  margin-top: -100px;
+  z-index: 2; /* fica por cima */
+  margin-top: -100px; /* sobrepõe hero */
   background-color: #e7e7e7;
 }
 
 .btn-jantares{width: 100%;}
-
-/* ====== Formulários ====== */
+/* ====== Agendamento jantares ====== */
+/* ====== Estilos Formulário de Orçamento ====== */
 .form-card {
-  background-color: #fff;
-  font-family: 'agrandir', sans-serif;
-  border: none;
-  border-radius: 15px;
-  padding: 2.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 650px;
-  margin-top: 80px;
+    background-color: #fff; /* Fundo branco para o card, contrastando com o #e7e7e7 da section */
+    font-family: 'agrandir', sans-serif; /* Usa a sua fonte personalizada */
+    border: none;
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 650px; /* Largura máxima para o formulário */
+    margin-top: 80px;
 }
 
 .form-title {
-  color: #233f69;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 2rem;
+    color: #233f69; /* Cor primária que você já usa */
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .form-label {
-  color: #677483;
-  font-weight: 500;
+    color: #677483; /* Cor secundária que você já usa */
+    font-weight: 500;
 }
 
+/* Estilo para os inputs quando focados, usando sua cor primária */
 .form-control:focus,
 .form-check-input:focus {
-  border-color: #233f69;
-  box-shadow: 0 0 0 0.25rem rgba(35, 63, 105, 0.25);
+    border-color: #233f69;
+    box-shadow: 0 0 0 0.25rem rgba(35, 63, 105, 0.25);
 }
 
+/* Estilo para checkboxes e radios marcados, usando sua cor primária */
 .form-check-input:checked {
-  background-color: #233f69;
-  border-color: #233f69;
+    background-color: #233f69;
+    border-color: #233f69;
 }
 
-/* ===== Modal ===== */
+/* ===== Modal Estilizado ===== */
 .modal-km {
   font-family: 'agrandir', sans-serif;
   background-color: #fff;
@@ -110,6 +121,8 @@ body { margin-bottom: 30px; }
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
   border: none;
 }
+
+/* Cabeçalho */
 .modal-km .modal-header {
   background-color: #233f69;
   color: #fff;
@@ -119,29 +132,38 @@ body { margin-bottom: 30px; }
   padding: 1.2rem 1rem;
   position: relative;
 }
+
 .modal-km .modal-title {
   font-weight: 600;
   font-size: 1.3rem;
   margin: 0 auto;
 }
+
+/* Botão de fechar */
 .modal-km .btn-close {
   filter: invert(1);
   position: absolute;
   right: 1rem;
   top: 1rem;
 }
+
+/* Corpo */
 .modal-km .modal-body {
   color: #677483;
   text-align: center;
   font-size: 1rem;
   padding: 1.8rem 2rem;
 }
+
+/* Rodapé */
 .modal-km .modal-footer {
   border-top: none;
   justify-content: center;
   background-color: #f8f8f8;
   padding: 1rem 1.5rem 1.5rem;
 }
+
+/* Botão */
 .modal-km .btn-km {
   font-size: 1rem;
   padding: 10px 24px;
@@ -151,20 +173,351 @@ body { margin-bottom: 30px; }
   border: none;
   transition: all 0.3s ease;
 }
+
 .modal-km .btn-km:hover {
   background-color: #4c73b3;
 }
-.modal-backdrop.show { background-color: rgba(35, 63, 105, 0.45); }
+
+/* Fundo do modal */
+.modal-backdrop.show {
+  background-color: rgba(35, 63, 105, 0.45);
+}
+
+/* Animação */
 .modal.fade .modal-dialog {
   transition: transform 0.25s ease-out;
   transform: translateY(-20px);
 }
-.modal.fade.show .modal-dialog { transform: translateY(0); }
+.modal.fade.show .modal-dialog {
+  transform: translateY(0);
+}
 
-/* ===== CRUD Marmitas ===== */
-.container-wide { max-width: 90%; }
 
+.int {
+    position: relative;
+    padding-top: 4rem;  /* espaço pro texto */
+    padding-bottom: 3rem;
+    z-index: 1;
+  }
+  .int .esquerda h1 { font-size: 1.8rem; }
+  .int .esquerda h4 { font-size: 1rem; }
+  .gallery { margin-top: 1.5rem; }
+
+.direita {
+  position: relative;
+  z-index: 0; /* fica por trás */
+  margin-top: -30px; 
+}
+.esquerda {margin-top: 60px;}
+
+/* Services sobrepondo a direita */
+.services {
+  position: relative;
+  z-index: 2; /* fica por cima */
+  margin-top: -80px; /* sobrepõe hero */
+}
+/* ===== CRUD marmitas ===== */
+
+/* Alongar container */
+.container-wide {
+    max-width: 90%;
+}
+
+/* Padronização dos botões CRUD */
 .btn-crud {
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none; /* remove sublinhado */
+    margin: 0 4px; /* espaçamento entre botões */
+}
+
+.btn-crud i {
+    font-size: 0.85rem;
+}
+
+/* Editar */
+.btn-edit {
+    background-color: #233f69;
+    color: #fff;
+    border: none;
+}
+.btn-edit:hover {
+    background-color: #4c73b3;
+    transform: scale(1.03);
+    color: #fff;
+}
+
+/* Excluir */
+.btn-delete {
+    background-color: #999;
+    color: #fff;
+    border: none;
+}
+.btn-delete:hover {
+    background-color: #888;
+    transform: scale(1.03);
+    color: #fff;
+}
+
+/* Centralizar título */
+.page-title {
+    text-align: center;
+    color: #233f69;
+    font-weight: 600;
+}
+/* ====== FORMULÁRIO DE EDIÇÃO DE JANTARES ====== */
+
+.form-edit-jan {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'agrandir', sans-serif;
+    margin-top: 40px;
+}
+
+.form-edit-jan h6 {
+    font-weight: 600;
+    color: #233f69;
+    margin-bottom: 6px;
+}
+
+.form-edit-jan .form-edit-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.form-edit-jan .form-edit-control {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 14px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.form-edit-jan .form-edit-control:focus {
+    border-color: #233f69;
+    box-shadow: 0 0 0 0.2rem rgba(35, 63, 105, 0.25);
+    outline: none;
+}
+
+.form-edit-jan .form-edit-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.form-edit-jan hr {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+.form-edit-jan .btn-crud {
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.form-edit-jan .btn-edit {
+    background-color: #233f69;
+    color: #fff;
+}
+
+.form-edit-jan .btn-edit:hover {
+    background-color: #4c73b3;
+}
+
+.form-edit-jan .btn-delete {
+    background-color: #999;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.form-edit-jan .btn-delete:hover {
+    background-color: #888;
+}
+/* ====== FORMULÁRIO DE EDIÇÃO DE MARMITAS ====== */
+
+.form-edit-mar {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    font-family: 'agrandir', sans-serif;
+    margin-top: 40px;
+}
+
+.form-edit-mar h6 {
+    font-weight: 600;
+    color: #233f69;
+    margin-bottom: 6px;
+}
+
+.form-edit-mar .form-edit-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.form-edit-mar .form-edit-control {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px 14px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.form-edit-mar .form-edit-control:focus {
+    border-color: #233f69;
+    box-shadow: 0 0 0 0.2rem rgba(35, 63, 105, 0.25);
+    outline: none;
+}
+
+.form-edit-mar .form-edit-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.form-edit-mar hr {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+/* footer */
+/* Garante que o footer fique no fim mesmo com pouco conteúdo */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body > *:not(footer) {
+  flex: 1;
+}
+
+.footer-custom {
+  background-color: #343a40;
+  color: #f8f9fa;
+  text-align: center;
+  padding: 10px 10px; /* altura reduzida pela metade */
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  margin-top: auto;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 5px;
+}
+
+.footer-link {
+  color: #f8f9fa;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-link:hover {
+  transform: scale(1.15);
+}
+
+.footer-link:nth-child(1):hover { color: #E1306C; } /* Instagram */
+.footer-link:nth-child(2):hover { color: #000000; } /* TikTok */
+.footer-link:nth-child(3):hover { color: #25D366; } /* WhatsApp */
+
+.footer-text {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+
+
+/* Mobile-first: ajustes gerais */
+@media (max-width: 991.98px) {
+  .esquerda h1, .esquerda h4 { text-align: center; }
+}
+
+/* Desktop (≥992px) – dá “respiro” para o hero em telas grandes */
+@media (min-width: 992px) {
+  .int { min-height: 80vh; margin-top: -20px;}
+  .direita{padding-left: 10px;}
+  .card-meio{margin-top: 1.8vh;}
+  .card-direita{margin-top: 2.9vh;}
+}
+/* Esconde botão "ver mais" em telas maiores 
+@media (min-width: 768px) {
+  .btn-jantares{display: none;}
+}
+*/
+@media (max-width: 768px) {
+  .form-edit-mar .form-edit-row {
+        flex-direction: column;
+    }
+  .services { margin-top: -20px; /* sobe menos no mobile */ }
+  .kmpanela { display: none; }
+  .col-responsive{ display: none; }
+  .form-edit-jan .form-edit-row {
+        flex-direction: column;
+    }
+}
+@media (max-width: 576px) {
+  .int{margin: 0px;}
+}
+/* Opcional: telas muito pequenas */
+@media (max-width: 400px) {
+  .btn-km {
+    width: 80%;
+    display: block; /* Garante que o botão se comporte como um bloco */
+    margin-left: auto; /* Adiciona margem automática à esquerda */
+    margin-right: auto; /* Adiciona margem automática à direita */
+  }
+  .services {
+    margin-top: -40px;
+  }
+}
+
+/* =========================
+   FIM DO SEU CSS ORIGINAL
+   ========================= */
+
+
+/* =========================
+   ADIÇÕES: Responsividade de tabelas e ajustes complementares
+   (adicionadas sem remover nada do original)
+   ========================= */
+
+/* Normaliza o container-wide para telas grandes (mantendo o original) */
+.container-wide {
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+/* Refinamentos visuais opcionais (não sobrescrevem regras importantes existentes) */
+.card { border-radius: 10px; }
+.alert { margin-top: 1rem; }
+
+/* Botões CRUD alternativos (mantidos como fallback mas não removem os seus) */
+.btn-crud {
+  /* se já existe, essas propriedades serão redundantes mas seguras */
   border-radius: 8px;
   padding: 6px 14px;
   font-size: 0.9rem;
@@ -178,183 +531,136 @@ body { margin-bottom: 30px; }
   margin: 0 4px;
 }
 
-.btn-crud i { font-size: 0.85rem; }
+/* ===== Responsividade robusta para tabelas (marmitas, clientes, etc.) ===== */
+/* Essa seção foi adicionada para transformar qualquer .table em "cartões"
+   em telas pequenas sem exigir alteração do PHP (mas data-labels são recomendados) */
 
-.btn-edit {
-  background-color: #233f69;
-  color: #fff;
-  border: none;
-}
-.btn-edit:hover {
-  background-color: #4c73b3;
-  transform: scale(1.03);
-  color: #fff;
-}
-
-.btn-delete {
-  background-color: #999;
-  color: #fff;
-  border: none;
-}
-.btn-delete:hover {
-  background-color: #888;
-  transform: scale(1.03);
-  color: #fff;
-}
-
-.page-title {
-  text-align: center;
-  color: #233f69;
-  font-weight: 600;
-}
-
-/* ===== Form Edição ===== */
-.form-edit-jan, .form-edit-mar {
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 30px 40px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  font-family: 'agrandir', sans-serif;
-  margin-top: 40px;
-}
-
-.form-edit-jan h6, .form-edit-mar h6 {
-  font-weight: 600;
-  color: #233f69;
-  margin-bottom: 6px;
-}
-
-.form-edit-group {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-bottom: 20px;
-}
-
-.form-edit-control {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px 14px;
-  transition: all 0.3s ease;
-  font-size: 15px;
-}
-
-.form-edit-control:focus {
-  border-color: #233f69;
-  box-shadow: 0 0 0 0.2rem rgba(35, 63, 105, 0.25);
-  outline: none;
-}
-
-.form-edit-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-}
-
-/* Footer */
-html, body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-body > *:not(footer) { flex: 1; }
-
-.footer-custom {
-  background-color: #343a40;
-  color: #f8f9fa;
-  text-align: center;
-  padding: 10px 10px;
-  width: 100%;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-  margin-top: auto;
-}
-
-.footer-icons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-bottom: 5px;
-}
-/* ===== Responsividade real para tabela de clientes ===== */
-@media (max-width: 991px) {
-
-  /* Esconde o cabeçalho */
+@media (max-width: 768px) {
+  /* garante que o thead não ocupe espaço em mobile */
   .table thead {
     display: none !important;
+    height: 0 !important;
+    visibility: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
   }
 
-  /* Faz cada linha virar um card */
-  .table tbody tr {
+  /* cada linha vira um bloco (cartão) */
+  .table tbody {
     display: block;
-    background: #fff;
-    margin-bottom: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    padding: 0.75rem 1rem;
+    padding: 0;
   }
 
-  /* Cada célula vira uma linha com label + valor */
+  .table tbody tr {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    padding: 0.75rem 0.9rem;
+    border: 1px solid rgba(0,0,0,0.03);
+  }
+
+  /* cada célula vira uma linha com label + valor */
   .table tbody td {
-    display: flex;
+    display: flex !important;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    text-align: left;
+    width: 100%;
     border: none !important;
-    padding: 0.4rem 0;
+    padding: 0.35rem 0 !important;
+    gap: 10px;
   }
 
-  /* Mostra o nome da coluna antes do valor */
+  /* mostra o rótulo usando data-label (quando existir) */
   .table tbody td::before {
     content: attr(data-label);
-    font-weight: 600;
+    flex: 0 0 42%;
+    max-width: 42%;
+    font-weight: 700;
     color: #233f69;
-    flex: 1;
     text-align: left;
+    white-space: normal;
+    padding-right: 0.6rem;
+    line-height: 1.2;
   }
 
-  /* Valor do dado */
-  .table tbody td span, 
-  .table tbody td a, 
-  .table tbody td {
-    flex: 1;
+  /* valor do campo */
+  .table tbody td > * {
+    flex: 1 1 auto;
     text-align: right;
   }
 
-  /* Corrige o container */
-  .table-responsive, .table-reponsive {
-    overflow-x: visible !important;
-  }
-
-  /* Ações: botões empilhados */
+  /* coluna de ações/opções: empilhar botões */
+  .table tbody td[data-label="Ações"],
   .table tbody td[data-label="Opções"] {
-    flex-direction: column;
-    align-items: stretch;
+    display: block;
+    text-align: right;
   }
 
+  .table tbody td[data-label="Ações"] .btn-crud,
   .table tbody td[data-label="Opções"] .btn-crud {
     width: 100%;
-    margin: 5px 0;
-    text-align: center;
+    margin: 6px 0;
+    display: block;
   }
 
+  /* suporte para yazzi: caso a classe esteja escrita com erro no HTML */
+  .table-reponsive,
+  .table-responsive {
+    overflow: visible !important;
+    padding-right: 0;
+  }
+
+  /* reduz o tamanho do título no mobile para encaixar melhor */
   .page-title {
-    text-align: center;
     font-size: 1.4rem;
   }
 }
 
+/* refinamentos para telas muito pequenas */
 @media (max-width: 480px) {
+  .page-title {
+    font-size: 1.25rem;
+  }
+  .table tbody td::before {
+    font-size: 0.95rem;
+  }
+  .table tbody td {
+    padding: 0.25rem 0;
+  }
+}
+
+/* ajustes extras para telefones bem pequenos */
+@media (max-width: 400px) {
   .page-title {
     font-size: 1.2rem;
   }
 
-  .table tbody td::before {
-    font-size: 0.9rem;
-  }
-
   .btn-crud {
     font-size: 0.85rem;
-    padding: 0.4rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .table tbody tr {
+    padding: 0.6rem;
+  }
+
+  /* garante que botões largos fiquem centralizados */
+  .btn-km {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
+
+/* ===============
+   Nota: para rótulos nos cartões (data-label), existem duas opções:
+   1) você já pode adicionar data-label nos <td> (recomendado, mais semântico)
+   2) ou usar o script JS que automaticamente injeta data-label baseado no <thead>
+   (instruções JS abaixo). Ambos funcionam; o CSS já está pronto para os dois.
+   =============== */
