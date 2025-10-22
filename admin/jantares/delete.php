@@ -3,8 +3,6 @@
   session_start();
   // Verifica se o usuário está logado e é administrador
 if (!isset($_SESSION['user']) || $_SESSION['user']['id_user'] != 1) {
-    $_SESSION['message'] = "Você precisa ser administrador para acessar esse recurso!";
-    $_SESSION['type'] = "danger";
     header("Location: /TCC/index.php");
     exit;
 }

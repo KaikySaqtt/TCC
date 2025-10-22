@@ -67,7 +67,6 @@
 
         } catch (PDOException $e) {
             // Em caso de erro, exibe a mensagem e os dados para facilitar a depuração
-            echo "Erro ao salvar o orçamento da marmita: " . $e->getMessage();
             echo "<pre>";
             echo "Dados do Formulário (POST):<br>";
             print_r($_POST);
@@ -128,7 +127,6 @@ function edit()
                 header('Location: index.php');
                 exit;
             } catch (PDOException $e) {
-                echo 'Erro ao atualizar cliente: ' . $e->getMessage();
             }
         } else {
             global $customer;

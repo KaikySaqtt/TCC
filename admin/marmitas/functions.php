@@ -17,7 +17,6 @@ function index()
         $stmt = $db->query('SELECT * FROM tab_orcamento_marmita');
         $marmitas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        echo 'Erro ao listar orcamento de marmitas: ' . $e->getMessage();
     }
 }
 
@@ -34,7 +33,6 @@ function view($id = null)
         $stmt->execute();
         $marmita = $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        echo 'Erro ao visualizar orçamento de marmita: ' . $e->getMessage();
     }
 }
 
@@ -118,7 +116,6 @@ function edit($id_mar, $postData)
         return true;
 
     } catch (PDOException $e) {
-        echo 'Erro ao atualizar orçamento de marmita: ' . $e->getMessage();
         return false;
     }
 }
@@ -138,7 +135,6 @@ function delete($id = null)
             header('Location: index.php');
             exit;
         } catch (PDOException $e) {
-            echo 'Erro ao excluir orçamento: ' . $e->getMessage();
         }
     }
 }

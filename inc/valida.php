@@ -49,30 +49,22 @@ try {
             ];
 
 
-            $_SESSION['message'] = "Bem-vindo, " . htmlspecialchars($dados['name']) . "!";
-            $_SESSION['type'] = "success";
 
             header("Location: " . BASEURL . "index.php");
             exit;
         } else {
             // Senha incorreta
-            $_SESSION['message'] = "Senha incorreta. Tente novamente.";
-            $_SESSION['type'] = "danger";
             header("Location: " . BASEURL . "index.php");
             exit;
         }
     } else {
         // Usuário não encontrado
-        $_SESSION['message'] = "CPF/CNPJ não encontrado.";
-        $_SESSION['type'] = "danger";
         header("Location: " . BASEURL . "index.php");
         exit;
     }
 
 } catch (Exception $e) {
     // Tratamento de erro (por exemplo, erro de conexão)
-    $_SESSION['message'] = "Ocorreu um erro: " . $e->getMessage();
-    $_SESSION['type'] = "danger";
     header("Location: " . BASEURL . "index.php");
     exit;
 }

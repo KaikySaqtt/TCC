@@ -17,7 +17,6 @@ function index()
         $stmt = $db->query('SELECT * FROM tab_usuarios');
         $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        echo 'Erro ao listar clientes: ' . $e->getMessage();
     }
 }
 
@@ -34,7 +33,6 @@ function view($id = null)
         $stmt->execute();
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        echo 'Erro ao visualizar cliente: ' . $e->getMessage();
     }
 }
 
@@ -81,7 +79,6 @@ function edit()
                 header('Location: index.php');
                 exit;
             } catch (PDOException $e) {
-                echo 'Erro ao atualizar cliente: ' . $e->getMessage();
             }
         } else {
             global $customer;
@@ -100,14 +97,34 @@ function delete($id = null)
 {
     if ($id !== null) {
         $db = open_database();
+
         try {
-            $stmt = $db->prepare('DELETE FROM tab_usuarios WHERE id_user = :id_user');
+            // 1. Buscar o CPF/CNPJ do usuário
+            $stmt = $db->prepare('SELECT cpf_cnpj FROM tab_usuarios WHERE id_user = :id_user');
             $stmt->bindParam(':id_user', $id, PDO::PARAM_INT);
             $stmt->execute();
-            header('Location: index.php');
-            exit;
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($user) {
+                $cpf = $user['cpf_cnpj'];
+
+                // 2. Excluir orçamentos/jantares relacionados a esse usuário
+                $stmt = $db->prepare('DELETE FROM tab_orcamento_jantar WHERE cpf_cnpj_usuario = :cpf');
+                $stmt->bindParam(':cpf', $cpf);
+                $stmt->execute();
+
+                // 3. Agora excluir o usuário
+                $stmt = $db->prepare('DELETE FROM tab_usuarios WHERE id_user = :id_user');
+                $stmt->bindParam(':id_user', $id, PDO::PARAM_INT);
+                $stmt->execute();
+
+                header('Location: index.php');
+                exit;
+            } else {
+                echo "Usuário não encontrado!";
+            }
         } catch (PDOException $e) {
-            echo 'Erro ao excluir cliente: ' . $e->getMessage();
+            echo "Erro ao excluir: " . $e->getMessage();
         }
     }
 }

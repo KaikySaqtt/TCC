@@ -14,7 +14,7 @@ $('#modal_jantares').on('show.bs.modal', function (event) {
 
   var modal = $(this);
   modal.find('.modal-title').text('Excluir Jantar com o id = ' + id );
-  modal.find('.modal-body').text('Deseja realmente excluir o jantar com o id = ' + id + '?');
+  modal.find('.modal-body').text('Deseja realmente excluir o jantar com o id ' + id + '?');
   modal.find('#confirm').attr('href', 'delete.php?id_jan=' + id);
 });
 
@@ -25,7 +25,7 @@ $('#modal_marmitas').on('show.bs.modal', function (event) {
 
   var modal = $(this);
   modal.find('.modal-title').text('Excluir Marmita com o id = ' + id );
-  modal.find('.modal-body').text('Deseja realmente excluir a marmita com o id = ' + id + '?');
+  modal.find('.modal-body').text('Deseja realmente excluir a marmita com o id ' + id + '?');
   modal.find('#confirm').attr('href', 'delete.php?id_mar=' + id);
 });
 
@@ -36,7 +36,7 @@ $('#modal_clientes').on('show.bs.modal', function (event) {
 
   var modal = $(this);
   modal.find('.modal-title').text('Excluir o cliente com o id = ' + id );
-  modal.find('.modal-body').text('Deseja realmente excluir o cliente com o id = ' + id + '?');
+  modal.find('.modal-body').text('Deseja realmente excluir o cliente com o id ' + id + '?');
   modal.find('#confirm').attr('href', 'delete.php?id_user=' + id);
 });
 function sendwhatsappjantar() {

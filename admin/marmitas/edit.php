@@ -4,8 +4,6 @@ include("functions.php");
 
 // Verifica se o usuário está logado e é administrador
 if (!isset($_SESSION['user']) || $_SESSION['user']['id_user'] != 1) {
-    $_SESSION['message'] = "Você precisa estar logado e ser administrador para acessar esse recurso!";
-    $_SESSION['type'] = "danger";
     header("Location: /TCC/index.php");
     exit;
 }
@@ -49,12 +47,9 @@ if (isset($_POST['marmita'])) {
         $stmt->bindParam(':id_mar', $id_mar, PDO::PARAM_INT);
 
         $stmt->execute();
-        $_SESSION['message'] = "Orçamento atualizado com sucesso!";
-        $_SESSION['type'] = "success";
         header('Location: index.php');
         exit;
     } catch (PDOException $e) {
-        echo 'Erro ao atualizar orçamento de marmita: ' . $e->getMessage();
     }
 }
 
@@ -79,7 +74,8 @@ include(HEADER_TEMPLATE);
 
         <div class="form-edit-group col-md-3">
             <label><h6>CPF ou CNPJ do cliente</h6></label>
-            <input type="text" class="form-edit-control" name="marmita[cpf_cnpj_usuario]" value="<?php echo $marmita['cpf_cnpj_usuario']; ?>" required>
+            <input type="text" class="form-edit-control" value="<?php echo htmlspecialchars($marmita['cpf_cnpj_usuario']); ?>" disabled>
+            <input type="hidden" name="marmita[cpf_cnpj_usuario]" value="<?php echo htmlspecialchars($marmita['cpf_cnpj_usuario']); ?>">
         </div>
 
         <div class="form-edit-group col-md-3">

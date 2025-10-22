@@ -17,7 +17,6 @@ function index()
         $stmt = $db->query('SELECT * FROM tab_orcamento_jantar');
         $jantares = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        echo 'Erro ao listar orçamentos dos jantares: ' . $e->getMessage();
     }
 }
 
@@ -34,7 +33,6 @@ function view($id_jan = null)
         $stmt->execute();
         $jantar = $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        echo 'Erro ao visualizar orçamentos de jantares: ' . $e->getMessage();
     }
 }
 /**
@@ -80,7 +78,6 @@ function edit($id_jan, $postData)
         return true;
 
     } catch (PDOException $e) {
-        echo 'Erro ao atualizar orçamento de jantar: ' . $e->getMessage();
         return false;
     }
 }
@@ -99,7 +96,6 @@ function delete($id = null)
             header('Location: index.php');
             exit;
         } catch (PDOException $e) {
-            echo 'Erro ao excluir cliente: ' . $e->getMessage();
         }
     }
 }

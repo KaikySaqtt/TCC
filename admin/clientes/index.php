@@ -4,13 +4,9 @@
 
 if (isset($_SESSION['user'])) {
     if ($_SESSION['user']['id_user'] != 1) {
-        $_SESSION['message'] = "Você precisa ser administrador para acessar esse recurso!";
-        $_SESSION['type'] = "danger";
         header("Location: " . "/TCC/clientes/index.php");
     }
 } else {
-    $_SESSION['message'] = "Você precisa estar logado e ser administrador para acessar esse recurso!";
-    $_SESSION['type'] = "danger";
     header("Location: " . "/TCC/jantares/index.php");
 }
 include('functions.php');

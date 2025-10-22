@@ -3,13 +3,13 @@
             
       <footer class="footer-custom">
   <div class="footer-icons">
-    <a href="https://instagram.com" target="_blank" class="footer-link">
+    <a href="https://www.instagram.com/personalchef.karolmarques" target="_blank" class="footer-link">
       <i class="fa-brands fa-instagram"></i>
     </a>
-    <a href="https://tiktok.com" target="_blank" class="footer-link">
+    <a href="https://www.tiktok.com/@chefkarolmarques" target="_blank" class="footer-link">
       <i class="fa-brands fa-tiktok"></i>
     </a>
-    <a href="https://wa.me/5599999999999" target="_blank" class="footer-link">
+    <a href="https://wa.me/5515998114782 " target="_blank" class="footer-link">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
   </div>

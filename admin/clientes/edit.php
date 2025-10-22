@@ -4,8 +4,6 @@ include("functions.php");
 
 // Verifica se o usuário está logado e é administrador
 if (!isset($_SESSION['user']) || $_SESSION['user']['id_user'] != 1) {
-    $_SESSION['message'] = "Você precisa estar logado e ser administrador para acessar esse recurso!";
-    $_SESSION['type'] = "danger";
     header("Location: /TCC/index.php");
     exit;
 }
@@ -28,14 +26,12 @@ if (isset($_POST['usuario'])) {
     try {
         $stmt = $db->prepare('UPDATE tab_usuarios 
             SET name = :name,
-                cpf_cnpj = :cpf_cnpj,
                 password = :password,
                 telefone = :telefone
             WHERE id_user = :id_user');
 
         // Pega os valores do formulário
         $name     = $usuarioPost['name'] ?? null;
-        $cpf_cnpj = $usuarioPost['cpf_cnpj'] ?? null;
         $password = $usuarioPost['password'] ?? null;
         $telefone = $usuarioPost['telefone'] ?? null;
 
@@ -48,19 +44,15 @@ if (isset($_POST['usuario'])) {
 
         // Faz o bind dos parâmetros
         $stmt->bindParam(':name', $name, PDO::PARAM_STR);
-        $stmt->bindParam(':cpf_cnpj', $cpf_cnpj, PDO::PARAM_INT);
         $stmt->bindParam(':password', $password, PDO::PARAM_STR);
         $stmt->bindParam(':telefone', $telefone, PDO::PARAM_INT);
         $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
 
         $stmt->execute();
 
-        $_SESSION['message'] = "Usuário atualizado com sucesso!";
-        $_SESSION['type'] = "success";
         header('Location: index.php');
         exit;
     } catch (PDOException $e) {
-        echo 'Erro ao atualizar usuário: ' . $e->getMessage();
     }
 }
 

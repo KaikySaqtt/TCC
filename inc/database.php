@@ -30,8 +30,6 @@ function find($table = null, $id = null)
             $found = $stmt->fetch(PDO::FETCH_ASSOC);
         }
     } catch (PDOException $e) {
-        $_SESSION['message'] = $e->getMessage();
-        $_SESSION['type'] = 'danger';
     }
 
     close_database($database);
@@ -46,8 +44,6 @@ function find_all($table)
         $stmt = $database->query("SELECT * FROM $table");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        $_SESSION['message'] = $e->getMessage();
-        $_SESSION['type'] = 'danger';
     }
 
     close_database($database);
@@ -63,11 +59,7 @@ function save($table = null, $data = null)
     try {
         $stmt = $database->prepare("INSERT INTO $table ($columns) VALUES ($placeholders)");
         $stmt->execute($data);
-        $_SESSION['message'] = 'Registro cadastrado com sucesso.';
-        $_SESSION['type'] = 'success';
     } catch (PDOException $e) {
-        $_SESSION['message'] = 'Não foi possível realizar a operação: ' . $e->getMessage();
-        $_SESSION['type'] = 'danger';
     }
 
     close_database($database);
@@ -87,11 +79,7 @@ function update($table = null, $id = 0, $data = null)
         $stmt = $database->prepare("UPDATE $table SET $set WHERE id = :id");
         $data['id'] = $id;
         $stmt->execute($data);
-        $_SESSION['message'] = 'Registro atualizado com sucesso.';
-        $_SESSION['type'] = 'success';
     } catch (PDOException $e) {
-        $_SESSION['message'] = 'Não foi possível realizar a operação: ' . $e->getMessage();
-        $_SESSION['type'] = 'danger';
     }
 
     close_database($database);
@@ -100,8 +88,6 @@ function update($table = null, $id = 0, $data = null)
 function remove($table = null, $id = null)
 {
     if (!$id) {
-        $_SESSION['message'] = 'ID inválido para exclusão.';
-        $_SESSION['type'] = 'danger';
         return;
     }
 
@@ -110,11 +96,7 @@ function remove($table = null, $id = null)
         $stmt = $database->prepare("DELETE FROM $table WHERE id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        $_SESSION['message'] = 'Registro removido com sucesso.';
-        $_SESSION['type'] = 'success';
     } catch (PDOException $e) {
-        $_SESSION['message'] = 'Erro ao remover registro: ' . $e->getMessage();
-        $_SESSION['type'] = 'danger';
     }
 
     close_database($database);
@@ -131,8 +113,6 @@ function criptografia($senha)
 
 function clear_messages()
 {
-    $_SESSION['message'] = null;
-    $_SESSION['type'] = null;
 }
 
 function formatadata($date, $formato)

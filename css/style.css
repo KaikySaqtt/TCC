@@ -404,11 +404,17 @@ body { margin-bottom: 30px; }
 /* footer */
 /* Garante que o footer fique no fim mesmo com pouco conteúdo */
 html, body {
-  height: 100%;
+  min-height: 100vh;   /* Garante altura sempre igual ou maior que a tela */
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;  /* Mantém sem scroll lateral */
 }
 
+body > *:not(footer) {
+  flex: 1; /* Faz o conteúdo ocupar o espaço e empurra o footer para baixo */
+}
 body > *:not(footer) {
   flex: 1;
 }
@@ -494,6 +500,8 @@ body > *:not(footer) {
     margin-top: -40px;
   }
 }
+
+
 
 /* =========================
    FIM DO SEU CSS ORIGINAL

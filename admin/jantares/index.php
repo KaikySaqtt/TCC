@@ -1,7 +1,6 @@
 <?php if (!isset($_SESSION)) session_start(); ?>
 <?php
 if ($_SESSION['user']['id_user'] != 1) {
-    $_SESSION['message'] = "Você precisa ser administrador para acessar esse recurso!";
     $_SESSION['type'] = "danger";
     header("Location: /TCC/clientes/index.php");
 }
@@ -12,14 +11,13 @@ include(HEADER_TEMPLATE);
 
 <?php if (!empty($_SESSION['message'])) : ?>
     <div class="alert alert-<?php echo $_SESSION['type']; ?> alert-dismissible fade show mt-3 text-center" role="alert">
-        <?php echo $_SESSION['message']; ?>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
     </div>
 <?php endif; ?>
 
 
 <div class="container container-wide agrandir mt-3 pb-3">
-    <div class="card shadow-sm border-0 mt-5 p-4"></div>
+    <div class="mt-5 p-4"></div>
         <h2 class="page-title mb-4">Orçamentos de jantares e almoços privativos cadastrados</h2>
         <div class="table-responsive">
             <table class="table table-hover align-middle">

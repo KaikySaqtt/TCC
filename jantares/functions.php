@@ -57,7 +57,6 @@
             exit;
 
         } catch (PDOException $e) {
-            echo "Erro ao fazer o orçamento: " . $e->getMessage();
             echo "<pre>";
             print_r($_POST);
             print_r($_SESSION);

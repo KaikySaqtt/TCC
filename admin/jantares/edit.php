@@ -4,8 +4,6 @@ include("functions.php");
 
 // Verifica se o usuário está logado e é administrador
 if (!isset($_SESSION['user']) || $_SESSION['user']['id_user'] != 1) {
-    $_SESSION['message'] = "Você precisa estar logado e ser administrador para acessar esse recurso!";
-    $_SESSION['type'] = "danger";
     header("Location: /TCC/index.php");
     exit;
 }
@@ -55,12 +53,9 @@ if (isset($_POST['jantar'])) {
         $stmt->bindParam(':id_jan', $id_jan, PDO::PARAM_INT);
 
         $stmt->execute();
-        $_SESSION['message'] = "Orçamento atualizado com sucesso!";
-        $_SESSION['type'] = "success";
         header('Location: index.php');
         exit;
     } catch (PDOException $e) {
-        echo 'Erro ao atualizar orçamento de jantar: ' . $e->getMessage();
     }
 }
 
@@ -96,10 +91,11 @@ include(HEADER_TEMPLATE);
             <label><h6>Quantidade de pessoas</h6></label>
             <input type="text" class="form-edit-control" name="jantar[quantidade_pessoas]" value="<?php echo $jantar['quantidade_pessoas']; ?>" required>
         </div>
-        <div class="form-edit-group col-md-2">
-            <label><h6>CPF ou CNPJ do cliente</h6></label>
-            <input type="text" class="form-edit-control" name="jantar[cpf_cnpj_usuario]" value="<?php echo $jantar['cpf_cnpj_usuario']; ?>" required>
-        </div>
+    <div class="form-edit-group col-md-2">
+        <label><h6>CPF ou CNPJ do cliente</h6></label>
+        <input type="text" class="form-edit-control" value="<?php echo htmlspecialchars($jantar['cpf_cnpj_usuario']); ?>" disabled>
+        <input type="hidden" name="jantar[cpf_cnpj_usuario]" value="<?php echo htmlspecialchars($jantar['cpf_cnpj_usuario']); ?>">
+    </div>
         <div class="form-edit-group col-md-2">
             <label><h6>Jantar ou almoço</h6></label>
             <input type="text" class="form-edit-control" name="jantar[jantar_ou_almoco]" value="<?php echo $jantar['jantar_ou_almoco']; ?>" required>
