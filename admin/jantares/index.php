@@ -47,8 +47,8 @@ include(HEADER_TEMPLATE);
                                 <td><?php echo formatacpfcnpj($jantar['cpf_cnpj_usuario']); ?></td>
                                 <td><?php echo $jantar['jantar_ou_almoco']; ?></td>
                                 <td><?php echo $jantar['quantidade_pessoas']; ?></td>
-                                <td><?php echo $jantar['drinks'] == 0 ? 'Sim' : 'Não'; ?></td>
-                                <td><?php echo $jantar['sobremesas'] == 0 ? 'Sim' : 'Não'; ?></td>
+                                <td><?php echo $jantar['drinks'] == 0 ? 'Não' : 'Sim'; ?></td>
+                                <td><?php echo $jantar['sobremesas'] == 0 ? 'Não' : 'Sim'; ?></td>
                                 <td><?php echo formatadata($jantar['data_do_evento'], "d/m/Y"); ?></td>
                                 <td><?php echo formatadata($jantar['data_do_orcamento_jan'], "d/m/Y"); ?></td>
                                 <td class="text-start"><?php echo nl2br(htmlspecialchars($jantar['detalhes_jan'])); ?></td>

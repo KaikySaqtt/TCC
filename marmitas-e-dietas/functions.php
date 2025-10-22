@@ -46,17 +46,17 @@
             // ATENÇÃO: Os nomes em $_POST['...'] devem corresponder aos 'name' dos seus campos no formulário HTML.
             $quantidade_marmitas = $_POST['quantidade_marmitas'];
             $fit_ou_normal = $_POST['tipo_marmita']; // Ex: 'Fit' ou 'Normal'
-            $dieta_ou_nao = $_POST['dieta_ou_nao'];     // Ex: 'Sim' ou 'Não'
+            $dieta_ou_nao = isset($_POST['dieta_ou_nao']) ? 1 : 0;     // Ex: 'Sim' ou 'Não'
             $detalhes_mar = $_POST['detalhes_mar'];       // Detalhes do pedido
             $dia_orcamento = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));
 
             // --- Vincular (Bind) os parâmetros ---
             $stmt->bindParam(':quantidade_marmitas', $quantidade_marmitas, PDO::PARAM_INT);
-            $stmt->bindParam(':fit_ou_normal', $fit_ou_normal);
-            $stmt->bindParam(':dieta_ou_nao', $dieta_ou_nao);
-            $stmt->bindParam(':detalhes_mar', $detalhes_mar);
+            $stmt->bindParam(':fit_ou_normal', $fit_ou_normal, PDO::PARAM_STR);
+            $stmt->bindParam(':dieta_ou_nao', $dieta_ou_nao, PDO::PARAM_BOOL);
+            $stmt->bindParam(':detalhes_mar', $detalhes_mar, PDO::PARAM_STR);
             $stmt->bindValue(':data_do_orcamento_mar', $dia_orcamento->format('Y-m-d H:i:s'));
-            $stmt->bindParam(':cpf_cnpj_usuario', $cpf_cnpj_usuario);
+            $stmt->bindParam(':cpf_cnpj_usuario', $cpf_cnpj_usuario, PDO::PARAM_INT);
 
             // Executa a query
             $stmt->execute();

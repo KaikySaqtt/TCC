@@ -11,97 +11,101 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['id_user'] != 1) {
 }
 
 // Verifica se o ID foi passado
-if (!isset($_GET['id_mar'])) {
-    die("ID da marmita não informado.");
+if (!isset($_GET['id_user'])) {
+    die("ID do usuário não informado.");
 }
 
-$id_mar = $_GET['id_mar'];
+$id_user = $_GET['id_user'];
 
-// Busca os dados da marmita antes de exibir o formulário
-view($id_mar);
+// Busca os dados do usuário
+$usuario = view($id_user);
 
-// Processa o POST (quando o formulário é enviado)
-if (isset($_POST['marmita'])) {
-    $marmitaPost = $_POST['marmita'];
+// Processa o formulário
+if (isset($_POST['usuario'])) {
+    $usuarioPost = $_POST['usuario'];
     $db = open_database();
+
     try {
-        $stmt = $db->prepare('UPDATE tab_orcamento_marmita 
-            SET quantidade_marmitas = :quantidade_marmitas, 
-                cpf_cnpj_usuario = :cpf_cnpj_usuario,   
-                fit_ou_normal = :fit_ou_normal, 
-                dieta_ou_nao = :dieta_ou_nao, 
-                detalhes_mar = :detalhes_mar
-            WHERE id_mar = :id_mar');
+        $stmt = $db->prepare('UPDATE tab_usuarios 
+            SET name = :name,
+                cpf_cnpj = :cpf_cnpj,
+                password = :password,
+                telefone = :telefone
+            WHERE id_user = :id_user');
 
-        // Preparar variáveis
-        $quantidade_marmitas = $marmitaPost['quantidade_marmitas'] ?? null;
-        $cpf_cnpj_usuario    = $marmitaPost['cpf_cnpj_usuario'] ?? null;
-        $fit_ou_normal       = $marmitaPost['fit_ou_normal'] ?? null;
-        $dieta_ou_nao        = $marmitaPost['dieta_ou_nao'] ?? null;
-        $detalhes_mar        = $marmitaPost['detalhes_mar'] ?? null;
+        // Pega os valores do formulário
+        $name     = $usuarioPost['name'] ?? null;
+        $cpf_cnpj = $usuarioPost['cpf_cnpj'] ?? null;
+        $password = $usuarioPost['password'] ?? null;
+        $telefone = $usuarioPost['telefone'] ?? null;
 
-        // Bind dos parâmetros
-        $stmt->bindParam(':quantidade_marmitas', $quantidade_marmitas, PDO::PARAM_INT);
-        $stmt->bindParam(':cpf_cnpj_usuario', $cpf_cnpj_usuario, PDO::PARAM_STR);
-        $stmt->bindParam(':fit_ou_normal', $fit_ou_normal, PDO::PARAM_STR);
-        $stmt->bindParam(':dieta_ou_nao', $dieta_ou_nao, PDO::PARAM_STR);
-        $stmt->bindParam(':detalhes_mar', $detalhes_mar, PDO::PARAM_STR);
-        $stmt->bindParam(':id_mar', $id_mar, PDO::PARAM_INT);
+        // Se o campo senha estiver vazio, mantém a senha antiga
+        if (empty($password)) {
+            $password = $usuario['password'];
+        } else {
+            $password = password_hash($password, PASSWORD_DEFAULT);
+        }
+
+        // Faz o bind dos parâmetros
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $stmt->bindParam(':cpf_cnpj', $cpf_cnpj, PDO::PARAM_INT);
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+        $stmt->bindParam(':telefone', $telefone, PDO::PARAM_INT);
+        $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
 
         $stmt->execute();
-        $_SESSION['message'] = "Orçamento atualizado com sucesso!";
+
+        $_SESSION['message'] = "Usuário atualizado com sucesso!";
         $_SESSION['type'] = "success";
         header('Location: index.php');
         exit;
     } catch (PDOException $e) {
-        echo 'Erro ao atualizar orçamento de marmita: ' . $e->getMessage();
+        echo 'Erro ao atualizar usuário: ' . $e->getMessage();
     }
 }
 
 include(HEADER_TEMPLATE);
 ?>
 
-<h2>Atualizar orçamento</h2>
+<h2 class="page-title">Editar Usuário</h2>
 
-<form action="edit.php?id_mar=<?php echo $marmita['id_mar']; ?>" method="post" enctype="multipart/form-data">
+<form class="form-edit-mar" action="edit.php?id_user=<?php echo $usuario['id_user']; ?>" method="post" enctype="multipart/form-data">
     <hr>
-    <div class="row mb-5 mt-5">
-        <div class="form-group col-md-2">
-            <label><h6>Quantidade de marmitas</h6></label>
-            <input type="text" class="form-control" name="marmita[quantidade_marmitas]" value="<?php echo $marmita['quantidade_marmitas']; ?>" required>
+
+    <div class="form-edit-row mb-5 mt-5">
+        <div class="form-edit-group col-md-2">
+            <label><h6>ID do usuario</h6></label>
+            <input type="text" class="form-edit-control" value="<?php echo $usuario['id_user']; ?>" disabled>
+        </div>
+        <div class="form-edit-group col-md-4">
+            <label><h6>Nome do usuario</h6></label>
+            <input type="text" class="form-edit-control" name="usuario[name]" value="<?php echo $usuario['name']; ?>" required>
+        </div>
+        <div class="form-edit-group col-md-4">
+            <label><h6>Senha (deixe em branco para manter a senha atual)</h6></label>
+            <input type="password" class="form-edit-control" name="usuario[password]" value="">
         </div>
 
-        <div class="form-group col-md-2">
-            <label><h6>CPF ou CNPJ do cliente</h6></label>
-            <input type="text" class="form-control" name="marmita[cpf_cnpj_usuario]" value="<?php echo $marmita['cpf_cnpj_usuario']; ?>" required>
-        </div>
-
-        <div class="form-group col-md-2">
-            <label><h6>Data de emissão do pedido</h6></label>
-            <input type="date" class="form-control" value="<?php echo date('Y-m-d', strtotime($marmita['data_do_orcamento_mar'])); ?>" disabled>
+        <div class="form-edit-group col-md-2">
+            <label><h6>ID do usuario</h6></label>
+            <input type="text" class="form-edit-control" value="<?php echo $usuario['id_user']; ?>" disabled>
         </div>
     </div>
 
-    <div class="row mb-5 mt-5">
-        <div class="form-group col-md-2">
-            <label><h6>Fit ou normal</h6></label>
-            <input type="text" class="form-control" name="marmita[fit_ou_normal]" value="<?php echo $marmita['fit_ou_normal']; ?>" required>
-        </div>
-
-        <div class="form-group col-md-2">
-            <label><h6>Planejamento de dieta</h6></label>
-            <input type="text" class="form-control" name="marmita[dieta_ou_nao]" value="<?php echo $marmita['dieta_ou_nao']; ?>" required>
-        </div>
-
-        <div class="form-group col-md-2">
-            <label><h6>Detalhes do orçamento</h6></label>
-            <input type="text" class="form-control" name="marmita[detalhes_mar]" value="<?php echo $marmita['detalhes_mar']; ?>" required>
+    <div class="form-edit-row mb-5 mt-5">
+        <div class="form-edit-group col-md-3">
+            <label><h6>Telefone</h6></label>
+            <input type="number" class="form-edit-control" name="usuario[telefone]" value="<?php echo $usuario['telefone']; ?>" required>
         </div>
     </div>
 
     <div class="col-md-12 mt-2">
-        <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-sd-card"></i> Salvar</button>
-        <a href="index.php" class="btn btn-light"><i class="fa-solid fa-arrow-left"></i> Cancelar</a>
+        <button type="submit" class="btn-crud btn-edit mb-1">
+            <i class="fa-solid fa-sd-card"></i> Salvar
+        </button>
+        <a href="index.php" class="btn-crud btn-delete">
+            <i class="fa-solid fa-arrow-left"></i> Cancelar
+        </a>
     </div>
 </form>
 

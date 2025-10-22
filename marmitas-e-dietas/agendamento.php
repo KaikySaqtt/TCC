@@ -76,14 +76,14 @@ $db = open_database();
                 </div>
             </div>
             <div class="mb-3">
-                <label class="form-label d-block">Você deseja que planeje uma dieta ou você já possui um plano alimentar?</label>
+                <label class="form-label d-block">Você deseja que planeje uma dieta personalizada para você?</label>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="dieta_ou_nao" id="planejar_dieta" value="Sim" require>
-                    <label class="form-check-label" for="montar-dieta">Quero que planeje uma dieta</label>
+                    <label class="form-check-label" for="montar-dieta">Sim</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="dieta_ou_nao" id="não-planejar" value="Não" require>
-                    <label class="form-check-label" for="não-planejar">Já tenho um plano</label>
+                    <label class="form-check-label" for="não-planejar">Não</label>
                 </div>
             </div>
             <p class="form-title">Caso você possua um arquivo com a sua dieta ou detalheamento das refeições encaminhe posteriormente para a chef!</p>

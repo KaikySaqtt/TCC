@@ -50,7 +50,7 @@
                                 <td><?php echo $marmita['quantidade_marmitas']; ?></td>
                                 <td><?php echo formatacpfcnpj($marmita['cpf_cnpj_usuario']); ?></td>
                                 <td><?php echo $marmita['fit_ou_normal']; ?></td>
-                                <td><?php echo $marmita['dieta_ou_nao']; ?></td>
+                                <td><?php echo $marmita['dieta_ou_nao'] == 0 ? 'Não' : 'Sim'; ?></td>
                                 <td><?php echo formatadata($marmita['data_do_orcamento_mar'], "d/m/y"); ?></td>
                                 <td><?php echo $marmita['detalhes_mar']; ?></td>
                                 <td class="text-center">

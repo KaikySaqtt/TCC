@@ -61,48 +61,62 @@ if (isset($_POST['marmita'])) {
 include(HEADER_TEMPLATE);
 ?>
 
-<h2>Atualizar orçamento</h2>
+<h2 class="page-title">Atualizar orçamento</h2>
 
-<form action="edit.php?id_mar=<?php echo $marmita['id_mar']; ?>" method="post" enctype="multipart/form-data">
+<form class="form-edit-mar" action="edit.php?id_mar=<?php echo $marmita['id_mar']; ?>" method="post" enctype="multipart/form-data">
     <hr>
-    <div class="row mb-5 mt-5">
-        <div class="form-group col-md-2">
+
+    <div class="form-edit-row mb-5 mt-5">
+        <div class="form-edit-group col-md-2">
+            <label><h6>ID do Pedido</h6></label>
+            <input type="text" class="form-edit-control" value="<?php echo $marmita['id_mar']; ?>" disabled>
+        </div>
+
+        <div class="form-edit-group col-md-3">
             <label><h6>Quantidade de marmitas</h6></label>
-            <input type="text" class="form-control" name="marmita[quantidade_marmitas]" value="<?php echo $marmita['quantidade_marmitas']; ?>" required>
+            <input type="text" class="form-edit-control" name="marmita[quantidade_marmitas]" value="<?php echo $marmita['quantidade_marmitas']; ?>" required>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-edit-group col-md-3">
             <label><h6>CPF ou CNPJ do cliente</h6></label>
-            <input type="text" class="form-control" name="marmita[cpf_cnpj_usuario]" value="<?php echo $marmita['cpf_cnpj_usuario']; ?>" required>
+            <input type="text" class="form-edit-control" name="marmita[cpf_cnpj_usuario]" value="<?php echo $marmita['cpf_cnpj_usuario']; ?>" required>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-edit-group col-md-3">
             <label><h6>Data de emissão do pedido</h6></label>
-            <input type="date" class="form-control" value="<?php echo date('Y-m-d', strtotime($marmita['data_do_orcamento_mar'])); ?>" disabled>
+            <input type="date" class="form-edit-control" value="<?php echo date('Y-m-d', strtotime($marmita['data_do_orcamento_mar'])); ?>" disabled>
         </div>
     </div>
 
-    <div class="row mb-5 mt-5">
-        <div class="form-group col-md-2">
+    <div class="form-edit-row mb-5 mt-5">
+        <div class="form-edit-group col-md-3">
             <label><h6>Fit ou normal</h6></label>
-            <input type="text" class="form-control" name="marmita[fit_ou_normal]" value="<?php echo $marmita['fit_ou_normal']; ?>" required>
+            <input type="text" class="form-edit-control" name="marmita[fit_ou_normal]" value="<?php echo $marmita['fit_ou_normal']; ?>" required>
         </div>
 
-        <div class="form-group col-md-2">
-            <label><h6>Planejamento de dieta</h6></label>
-            <input type="text" class="form-control" name="marmita[dieta_ou_nao]" value="<?php echo $marmita['dieta_ou_nao']; ?>" required>
+        <div class="form-edit-group col-md-3">
+            <label><h6>Quer dieta ou não</h6></label>
+            <select class="form-edit-control" name="marmita[dieta_ou_nao]">
+                <option value="1" <?php echo $marmita['dieta_ou_nao'] ? 'selected' : ''; ?>>Sim</option>
+                <option value="0" <?php echo !$marmita['dieta_ou_nao'] ? 'selected' : ''; ?>>Não</option>
+            </select>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-edit-group col-md-4">
             <label><h6>Detalhes do orçamento</h6></label>
-            <input type="text" class="form-control" name="marmita[detalhes_mar]" value="<?php echo $marmita['detalhes_mar']; ?>" required>
+            <input type="text" class="form-edit-control" name="marmita[detalhes_mar]" value="<?php echo $marmita['detalhes_mar']; ?>" required>
         </div>
     </div>
 
     <div class="col-md-12 mt-2">
-        <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-sd-card"></i> Salvar</button>
-        <a href="index.php" class="btn btn-light"><i class="fa-solid fa-arrow-left"></i> Cancelar</a>
+        <button type="submit" class="btn-crud btn-edit mb-1">
+            <i class="fa-solid fa-sd-card"></i> Salvar
+        </button>
+        <a href="index.php" class="btn-crud btn-delete">
+            <i class="fa-solid fa-arrow-left"></i> Cancelar
+        </a>
     </div>
 </form>
+
 
 <?php include(FOOTER_TEMPLATE); ?>

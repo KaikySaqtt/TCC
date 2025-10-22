@@ -26,13 +26,13 @@ function index()
  */
 function view($id = null)
 {
-    global $customer;
+    global $usuario;
     $db = open_database();
     try {
-        $stmt = $db->prepare('SELECT * FROM customers WHERE id = :id');
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt = $db->prepare('SELECT * FROM tab_usuarios WHERE id_user = :id_user');
+        $stmt->bindParam(':id_user', $id, PDO::PARAM_INT);
         $stmt->execute();
-        $customer = $stmt->fetch(PDO::FETCH_ASSOC);
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         echo 'Erro ao visualizar cliente: ' . $e->getMessage();
     }
@@ -41,43 +41,6 @@ function view($id = null)
 /**
  *  Cadastro de Clientes
  */
-function add()
-{
-    if (!empty($_POST['customer'])) {
-        $today = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));
-        $customer = $_POST['customer'];
-        $customer['modified'] = $customer['created'] = $today->format('Y-m-d H:i:s');
-
-        $db = open_database();
-        try {
-            $stmt = $db->prepare('INSERT INTO customers 
-                (name, cpf_cnpj, birthdate, address, hood, zip_code, city, state, phone, ie, created, modified) 
-                VALUES 
-                (:name, :cpf_cnpj, :birthdate, :address, :hood, :zip_code, :city, :state, :phone, :ie, :created, :modified)');
-
-            // Bind dos parâmetros para evitar SQL Injection
-            $stmt->bindParam(':name', $customer['name'], PDO::PARAM_STR);
-            $stmt->bindParam(':cpf_cnpj', $customer['cpf_cnpj'], PDO::PARAM_STR);
-            $stmt->bindParam(':birthdate', $customer['birthdate'], PDO::PARAM_STR);
-            $stmt->bindParam(':address', $customer['address'], PDO::PARAM_STR);
-            $stmt->bindParam(':hood', $customer['hood'], PDO::PARAM_STR);
-            $stmt->bindParam(':zip_code', $customer['zip_code'], PDO::PARAM_STR);
-            $stmt->bindParam(':city', $customer['city'], PDO::PARAM_STR);
-            $stmt->bindParam(':state', $customer['state'], PDO::PARAM_STR);
-            $stmt->bindParam(':phone', $customer['phone'], PDO::PARAM_STR);
-            $stmt->bindParam(':ie', $customer['ie'], PDO::PARAM_STR);
-            $stmt->bindParam(':created', $customer['created'], PDO::PARAM_STR);
-            $stmt->bindParam(':modified', $customer['modified'], PDO::PARAM_STR);
-
-            $stmt->execute();
-
-            header('Location: index.php');
-            exit;
-        } catch (PDOException $e) {
-            echo 'Erro ao adicionar cliente: ' . $e->getMessage();
-        }
-    }
-}
 
 /**
  * Edita um cliente existente

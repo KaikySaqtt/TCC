@@ -85,31 +85,38 @@ include(HEADER_TEMPLATE);
             <input type="text" class="form-edit-control" name="jantar[endereco]" value="<?php echo $jantar['endereco']; ?>" required>
         </div>
 
+        
+        
+    </div>
+    <div class="form-edit-row mb-5 mt-5">
         <div class="form-edit-group col-md-2">
             <label><h6>Quantidade de pessoas</h6></label>
             <input type="text" class="form-edit-control" name="jantar[quantidade_pessoas]" value="<?php echo $jantar['quantidade_pessoas']; ?>" required>
         </div>
-
         <div class="form-edit-group col-md-2">
             <label><h6>CPF ou CNPJ do cliente</h6></label>
             <input type="text" class="form-edit-control" name="jantar[cpf_cnpj_usuario]" value="<?php echo $jantar['cpf_cnpj_usuario']; ?>" required>
         </div>
-    </div>
-
-    <div class="form-edit-row mb-5 mt-5">
         <div class="form-edit-group col-md-2">
             <label><h6>Jantar ou almoço</h6></label>
             <input type="text" class="form-edit-control" name="jantar[jantar_ou_almoco]" value="<?php echo $jantar['jantar_ou_almoco']; ?>" required>
         </div>
-
+    </div>
+    <div class="form-edit-row mb-5 mt-5">
         <div class="form-edit-group col-md-2">
-            <label><h6>Drinks</h6></label>
-            <input type="text" class="form-edit-control" name="jantar[drinks]" value="<?php if($jantar['drinks'] == 0) { echo 'Sim'; } else { echo 'Não'; } ?>" required>
+            <label><h6>Incluir drinks</h6></label>
+            <select class="form-edit-control" name="jantar[drinks]">
+                <option value="1" <?php echo $jantar['drinks'] ? 'selected' : ''; ?>>Sim</option>
+                <option value="0" <?php echo !$jantar['drinks'] ? 'selected' : ''; ?>>Não</option>
+            </select>
         </div>
 
         <div class="form-edit-group col-md-2">
-            <label><h6>Sobremesas</h6></label>
-            <input type="text" class="form-edit-control" name="jantar[sobremesas]" value="<?php if($jantar['sobremesas'] == 0) { echo 'Sim'; } else { echo 'Não'; } ?>" required>
+            <label><h6>Incluir sobremesas</h6></label>
+            <select class="form-edit-control" name="jantar[sobremesas]">
+                <option value="1" <?php echo $jantar['sobremesas'] ? 'selected' : ''; ?>>Sim</option>
+                <option value="0" <?php echo !$jantar['sobremesas'] ? 'selected' : ''; ?>>Não</option>
+            </select>
         </div>
 
         <div class="form-edit-group col-md-3">

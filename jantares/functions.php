@@ -45,8 +45,8 @@
             $stmt->bindParam(':data_do_evento', $data_do_evento);
             $stmt->bindValue(':data_do_orcamento_jan', $dia->format('Y-m-d H:i:s'));
             $stmt->bindParam(':jantar_ou_almoco', $jantar_ou_almoco);
-            $stmt->bindParam(':drinks', $drinks, PDO::PARAM_INT);
-            $stmt->bindParam(':sobremesas', $sobremesas, PDO::PARAM_INT);
+            $stmt->bindParam(':drinks', $drinks, PDO::PARAM_BOOL);
+            $stmt->bindParam(':sobremesas', $sobremesas, PDO::PARAM_BOOL);
             $stmt->bindParam(':detalhes_jan', $detalhes_jan);
             $stmt->bindParam(':cpf_cnpj_usuario', $cpf_cnpj_usuario);
 
