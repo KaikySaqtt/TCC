@@ -32,6 +32,11 @@ body { margin-bottom: 30px; }
 .btn-km:hover { background-color: #4c73b3; color: #fff; }
 
 /* ====== Layout das seções ====== */
+/* Títulos Sections */
+.card-index{
+  text-align: center;
+  color: #233f69;
+}
 
 /* INT / HERO */
 .esquerda, .direita { padding: 0; }

@@ -1,7 +1,7 @@
 
         </main> <!-- /container -->
             
-      <footer class="footer-custom">
+      <footer class="footer-custom mt-2">
   <div class="footer-icons">
     <a href="https://www.instagram.com/personalchef.karolmarques" target="_blank" class="footer-link">
       <i class="fa-brands fa-instagram"></i>

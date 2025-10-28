@@ -108,6 +108,7 @@ clear_messages(); ?>
     <div class="container bg-white rounded-3 p-4 p-md-5 shadow-sm">
         <div class="row align-items-center g-4">
             <div class="col-lg-5">
+                <h1 class="card-index mb-5">Serviços</h1>
                 <h4 class="agrandir text-center text-lg-start">
                     Descubra nossos serviços especializados e personalizados para você!
                 </h4>
@@ -144,6 +145,7 @@ clear_messages(); ?>
     <div class="container rounded-3 p-4 p-md-5">
         <div class="row align-items-center g-4">
             <div class="col-lg-5">
+                <h1 class="card-index mb-5">Sobre Karol</h1>
                 <h3 class="agrandir">
                     Conheça mais da nossa personal chef Karol Marques, especialista em gastronomia
                 </h3>
