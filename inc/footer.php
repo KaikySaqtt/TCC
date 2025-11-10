@@ -14,7 +14,7 @@
     </a>
   </div>
     <?php $data = new DateTime("now", new DateTimeZone("America/Sao_Paulo")); ?>
-  <p class="footer-text">© &copy;2025 a <?php echo $data->format("Y"); ?> - Todos os direitos reservados á Kaiky, Julia e Helena</p>
+  <p class="footer-text"> &copy;2025 a <?php echo $data->format("Y"); ?> - Todos os direitos reservados á Kaiky, Julia e Helena</p>
 </footer>
 
             

@@ -35,7 +35,7 @@ clear_messages(); ?>
             </div>
             <div class="col-lg-5">
                 <h3 class="agrandir">
-                    Conheça mais da nossa personal chef Karol Marques, especialista em gastronomia,sua missão é a de levar a boa gastronomia para a vida das pessoas, fazendo eventos em sua residencia! Ela tabmém tem serviços de produção de marmitas e dietas especias para seus cliente. 
+                    Conheça mais da nossa personal chef Karol Marques, especialista em gastronomia, sua missão é a de levar a boa gastronomia para a vida das pessoas, fazendo eventos em sua residencia! Ela também tem serviços de produção de marmitas e dietas especias para seus cliente. 
                 </h3>
             </div>
         </div>
