@@ -138,3 +138,26 @@ function delete($id = null)
         }
     }
 }
+
+function add($marmita)
+{
+    $db = open_database();
+    try {
+        $stmt = $db->prepare('INSERT INTO tab_orcamento_marmita 
+            (quantidade_marmitas, cpf_cnpj_usuario, fit_ou_normal, dieta_ou_nao, detalhes_mar, data_do_orcamento_mar) 
+            VALUES (:quantidade_marmitas, :cpf_cnpj_usuario, :fit_ou_normal, :dieta_ou_nao, :detalhes_mar, :data_do_orcamento_mar)');
+
+        $stmt->bindParam(':quantidade_marmitas', $marmita['quantidade_marmitas'], PDO::PARAM_INT);
+        $stmt->bindParam(':cpf_cnpj_usuario', $marmita['cpf_cnpj_usuario'], PDO::PARAM_INT);
+        $stmt->bindParam(':fit_ou_normal', $marmita['fit_ou_normal'], PDO::PARAM_STR);
+        $stmt->bindParam(':dieta_ou_nao', $marmita['dieta_ou_nao'], PDO::PARAM_STR);
+        $stmt->bindParam(':detalhes_mar', $marmita['detalhes_mar'], PDO::PARAM_STR);
+        $stmt->bindParam(':data_do_orcamento_mar', $marmita['data_do_orcamento_mar'], PDO::PARAM_STR);
+
+        $stmt->execute();
+    } catch (PDOException $e) {
+
+    }
+}
+
+

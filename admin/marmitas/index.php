@@ -1,16 +1,16 @@
 <?php if (!isset($_SESSION)) session_start(); ?>
 <?php
-    if (isset($_SESSION['user'])) {
-        if ($_SESSION['user']['id_user'] != 1) {
-            header("Location: " .  "/TCC/clientes/index.php");
-        }
-    } else {
-        header("Location: " . "/TCC/jantares/index.php");
+if (isset($_SESSION['user'])) {
+    if ($_SESSION['user']['id_user'] != 1) {
+        header("Location: " .  "/TCC/clientes/index.php");
     }
+} else {
+    header("Location: " . "/TCC/jantares/index.php");
+}
 
-    include('functions.php');
-    index();
-    include(HEADER_TEMPLATE);
+include('functions.php');
+index();
+include(HEADER_TEMPLATE);
 ?>
 
 <div class="container container-wide agrandir mt-5 pb-5">
@@ -23,7 +23,12 @@
 
     <div class="card shadow-sm border-0 mt-5 p-4">
         <h2 class="page-title mb-4">Orçamentos de marmitas cadastrados</h2>
-
+        <div class="d-flex justify-content-end mb-3">
+            <a href="create.php" class="btn-crud btn-edit d-flex align-items-center gap-2 px-3 py-2">
+                <i class="fa fa-utensils"></i>
+                <span>Nova Marmita</span>
+            </a>
+        </div>
         <div class="table-responsive">
             <table class="table table-hover align-middle">
                 <thead class="table-light" style="color: #233f69;">
@@ -39,34 +44,34 @@
                     </tr>
                 </thead>
                 <tbody>
-    <?php if ($marmitas) : ?>
-        <?php foreach ($marmitas as $marmita) : ?>
-            <tr>
-                <td data-label="ID"><?php echo $marmita['id_mar']; ?></td>
-                <td data-label="Quantidade"><?php echo $marmita['quantidade_marmitas']; ?></td>
-                <td data-label="CPF/CNPJ"><?php echo formatacpfcnpj($marmita['cpf_cnpj_usuario']); ?></td>
-                <td data-label="Fit ou normal"><?php echo $marmita['fit_ou_normal']; ?></td>
-                <td data-label="Quer dieta?"><?php echo $marmita['dieta_ou_nao'] == 0 ? 'Não' : 'Sim'; ?></td>
-                <td data-label="Data"><?php echo formatadata($marmita['data_do_orcamento_mar'], "d/m/y"); ?></td>
-                <td data-label="Detalhes"><?php echo $marmita['detalhes_mar']; ?></td>
-                <td data-label="Ações" class="text-center">
-                    <a href="edit.php?id_mar=<?php echo $marmita['id_mar']; ?>" class="btn-crud btn-edit mb-1">
-                        <i class="fa fa-file-pen"></i> Editar
-                    </a>
-                    <a href="#" class="btn-crud btn-delete"
-                       data-bs-toggle="modal" data-bs-target="#modal_marmitas"
-                       data-id="<?php echo $marmita['id_mar']; ?>">
-                        <i class="fa fa-trash-can"></i> Excluir
-                    </a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    <?php else : ?>
-        <tr>
-            <td colspan="8" class="text-center text-muted py-4">Nenhum registro encontrado.</td>
-        </tr>
-    <?php endif; ?>
-</tbody>
+                    <?php if ($marmitas) : ?>
+                        <?php foreach ($marmitas as $marmita) : ?>
+                            <tr>
+                                <td data-label="ID"><?php echo $marmita['id_mar']; ?></td>
+                                <td data-label="Quantidade"><?php echo $marmita['quantidade_marmitas']; ?></td>
+                                <td data-label="CPF/CNPJ"><?php echo formatacpfcnpj($marmita['cpf_cnpj_usuario']); ?></td>
+                                <td data-label="Fit ou normal"><?php echo $marmita['fit_ou_normal']; ?></td>
+                                <td data-label="Quer dieta?"><?php echo $marmita['dieta_ou_nao'] == 0 ? 'Não' : 'Sim'; ?></td>
+                                <td data-label="Data"><?php echo formatadata($marmita['data_do_orcamento_mar'], "d/m/y"); ?></td>
+                                <td data-label="Detalhes"><?php echo $marmita['detalhes_mar']; ?></td>
+                                <td data-label="Ações" class="text-center">
+                                    <a href="edit.php?id_mar=<?php echo $marmita['id_mar']; ?>" class="btn-crud btn-edit mb-1">
+                                        <i class="fa fa-file-pen"></i> Editar
+                                    </a>
+                                    <a href="#" class="btn-crud btn-delete"
+                                        data-bs-toggle="modal" data-bs-target="#modal_marmitas"
+                                        data-id="<?php echo $marmita['id_mar']; ?>">
+                                        <i class="fa fa-trash-can"></i> Excluir
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <tr>
+                            <td colspan="8" class="text-center text-muted py-4">Nenhum registro encontrado.</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
 
             </table>
         </div>
