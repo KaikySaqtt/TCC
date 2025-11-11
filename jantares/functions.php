@@ -53,7 +53,7 @@
             $stmt->execute();
 
             // Redireciona após inserção
-            header('Location: index.php');
+            header("Location: ../index.php");
             exit;
 
         } catch (PDOException $e) {

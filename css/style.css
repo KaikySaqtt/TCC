@@ -8,10 +8,10 @@
 }
 
 /* Base */
-body { margin-bottom: 30px; }
+body { margin-bottom: 30px;}
 .agrandir { font-family: 'agrandir'; }
 
-.navbar { background-color: #677483; margin: 0; }
+.navbar { background-color: #677483; margin: 0;}
 .navbody a { color: #eeecec; }
 .dropdown-menu { background-color: #677483; color: #e7e7e7; }
 
@@ -470,7 +470,7 @@ body > *:not(footer) {
 /* Desktop (≥992px) – dá “respiro” para o hero em telas grandes */
 @media (min-width: 992px) {
   .int { min-height: 80vh; margin-top: -20px;}
-  .direita{padding-left: 10px;}
+  .direita{padding-left: 10px; margin-top: -44px;}
   .card-meio{margin-top: 1.8vh;}
   .card-direita{margin-top: 2.9vh;}
 }

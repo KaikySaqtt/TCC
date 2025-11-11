@@ -62,7 +62,7 @@
             $stmt->execute();
 
             // Redireciona para a página principal após a inserção bem-sucedida
-            header('Location: index.php');
+            header('Location: ../index.php?mj=m');
             exit;
 
         } catch (PDOException $e) {
@@ -76,77 +76,4 @@
         }
     }
 }
-
-    function view($id = null) {
-        global $gerente;
-        $gerente = find("jantares", $id);
-    }
-
-    /**
- *	Atualizacao/Edicao de Cliente
- */
-function edit()
-{
-    $new = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));
-
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        if (isset($_POST['gerente'])) {
-            $gerente = $_POST['gerente'];
-
-            $db = open_database();
-            try {
-                if (!empty($_FILES['foto']['name'])) {
-					//Upload da foto
-					$pasta_destino = "fotos/";
-					$arquivo_destino = $pasta_destino . basename($_FILES['foto']['name']);
-					$nomearquivo = basename($_FILES['foto']['name']);
-					$resolução_arquivo = getimagesize($_FILES['foto']['tmp_name']);
-					$tamanho_arquivo = $_FILES['foto']['size'];
-					$nome_temp = $_FILES['foto']['tmp_name'];
-					$tipo_arquivo = strtolower(pathinfo($arquivo_destino, PATHINFO_EXTENSION));
-
-					upload($pasta_destino, $arquivo_destino, $tipo_arquivo, $nome_temp, $tamanho_arquivo);
-
-					$gerente['foto'] = $nomearquivo;
-				}
-
-                $stmt = $db->prepare('UPDATE gerentes 
-                    SET nome = :nome, endereco = :endereco, depto = :depto, datanasc = :datanasc, foto = :foto
-                        WHERE id = :id');
-
-                // Bind dos parâmetros
-                $stmt->bindParam(':nome', $gerente['nome']);
-                $stmt->bindParam(':endereco', $gerente['endereco']);
-                $stmt->bindParam(':depto', $gerente['depto']);  
-                $stmt->bindParam(':datanasc', $gerente['datanasc']);       
-                $stmt->bindParam(':foto', $gerente['foto']);  
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
-                $stmt->execute();
-                header('Location: index.php');
-                exit;
-            } catch (PDOException $e) {
-            }
-        } else {
-            global $customer;
-            view($id);
-        }
-    } else {
-        header('Location: index.php');
-        exit;
-    }
-}
-/**
- *  Exclusão de um Cliente
- */
-    function delete($id = null) {
-
-        $id = $_GET["id"];
-        
-        global $gerente;
-        $gerente = remove('gerentes', $id);
-
-        header('location: index.php');
-    }
 ?>

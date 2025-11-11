@@ -13,6 +13,75 @@ $db = open_database();
         </div>
     <?php endif;
 clear_messages(); ?>
+
+<?php if (isset($_GET['mj'])) {
+    if ($_GET['mj'] == 'j'){
+        echo '
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const modalHtml = `
+                <div class="modal fade" id="login-required-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loginRequiredLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content modal-km">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="loginRequiredLabel">
+                          <i class="bi bi-lock-fill me-2"></i> Acesso Negado
+                        </h1>
+                      </div>
+                      <div class="modal-body">
+                        Você precisa estar logado para acessar esse recurso.
+                      </div>
+                      <div class="modal-footer">
+                        <a href="../inc/login.php" class="btn btn-km">Ir para Login</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            `; // <-- aqui fechamos corretamente o template string
+
+            // Insere o modal no final do body
+            document.body.insertAdjacentHTML("beforeend", modalHtml);
+
+            // Cria e mostra o modal com Bootstrap
+            const modal = new bootstrap.Modal(document.getElementById("login-required-modal"));
+            modal.show();
+        });
+    </script>';
+    }
+    else{
+          echo '
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const modalHtml = `
+                <div class="modal fade" id="login-required-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loginRequiredLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content modal-km">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="loginRequiredLabel">
+                          <i class="bi bi-lock-fill me-2"></i> Acesso Negado
+                        </h1>
+                      </div>
+                      <div class="modal-body">
+                        Você precisa estar logado para acessar esse recurso.
+                      </div>
+                      <div class="modal-footer">
+                        <a href="../inc/login.php" class="btn btn-km">Ir para Login</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            `; // <-- aqui fechamos corretamente o template string
+
+            // Insere o modal no final do body
+            document.body.insertAdjacentHTML("beforeend", modalHtml);
+
+            // Cria e mostra o modal com Bootstrap
+            const modal = new bootstrap.Modal(document.getElementById("login-required-modal"));
+            modal.show();
+        });
+    </script>';
+    }
+}?>
 <?php endif; ?>
 
 <!-- INT / HERO -->
@@ -128,7 +197,7 @@ clear_messages(); ?>
                         <div class="card h-100 shadow-sm">
                             <img src="kmimagens/marmita2.png" class="card-img-top" alt="Marmitas e finger food">
                             <div class="card-body text-center">
-                                <h5 class="card-title">Marmitas e Dietas personalizadas para você</h5>
+                                <h5 class="card-title">Marmitas e Dietas personalizadas para sua rotina</h5>
                                 <a href="../TCC/marmitas-e-dietas/" class="btn btn-km">Ver mais</a>
                             </div>
                         </div>
