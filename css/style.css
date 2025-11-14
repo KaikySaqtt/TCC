@@ -355,6 +355,22 @@ body { margin-bottom: 30px;}
 .form-edit-jan .btn-delete:hover {
     background-color: #888;
 }
+
+/* modal pedido */
+.botao-ok {
+    background: #4c73b3;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.botao-ok:hover {
+    background: #3c5d91;
+}
+
 /* ====== FORMULÁRIO DE EDIÇÃO DE MARMITAS ====== */
 
 .form-edit-mar {

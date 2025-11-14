@@ -15,72 +15,36 @@ $db = open_database();
 clear_messages(); ?>
 
 <?php if (isset($_GET['mj'])) {
-    if ($_GET['mj'] == 'j'){
-        echo '
+        echo '  
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const modalHtml = `
-                <div class="modal fade" id="login-required-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loginRequiredLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content modal-km">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="loginRequiredLabel">
-                          <i class="bi bi-lock-fill me-2"></i> Acesso Negado
-                        </h1>
-                      </div>
-                      <div class="modal-body">
-                        Você precisa estar logado para acessar esse recurso.
-                      </div>
-                      <div class="modal-footer">
-                        <a href="../inc/login.php" class="btn btn-km">Ir para Login</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            `; // <-- aqui fechamos corretamente o template string
+    document.addEventListener("DOMContentLoaded", function() {
+        const modalHtml = `
+<div class="modal fade" id="pedido-registrado-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="pedidoRegistradoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border: none; border-radius: 12px; overflow: hidden;">
+            
+            <div class="modal-header text-white" style="background: #233f69; border-bottom: none;">
+                <h1 class="modal-title fs-5" id="pedidoRegistradoLabel">Pedido Registrado</h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
 
-            // Insere o modal no final do body
-            document.body.insertAdjacentHTML("beforeend", modalHtml);
+            <div class="modal-body" style="padding: 1.4rem; background: #f8f9fa;">
+                Seu pedido foi registrado com sucesso.
+            </div>
 
-            // Cria e mostra o modal com Bootstrap
-            const modal = new bootstrap.Modal(document.getElementById("login-required-modal"));
-            modal.show();
-        });
+            <div class="modal-footer" style="background: transparent; border-top: none;">
+                <button type="button" class="btn botao-ok" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+        
+        document.body.insertAdjacentHTML("beforeend", modalHtml);
+        const modal = new bootstrap.Modal(document.getElementById("pedido-registrado-modal"));
+        modal.show();
+    });
     </script>';
-    }
-    else{
-          echo '
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const modalHtml = `
-                <div class="modal fade" id="login-required-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="loginRequiredLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content modal-km">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="loginRequiredLabel">
-                          <i class="bi bi-lock-fill me-2"></i> Acesso Negado
-                        </h1>
-                      </div>
-                      <div class="modal-body">
-                        Você precisa estar logado para acessar esse recurso.
-                      </div>
-                      <div class="modal-footer">
-                        <a href="../inc/login.php" class="btn btn-km">Ir para Login</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            `; // <-- aqui fechamos corretamente o template string
-
-            // Insere o modal no final do body
-            document.body.insertAdjacentHTML("beforeend", modalHtml);
-
-            // Cria e mostra o modal com Bootstrap
-            const modal = new bootstrap.Modal(document.getElementById("login-required-modal"));
-            modal.show();
-        });
-    </script>';
-    }
 }?>
 <?php endif; ?>
 
